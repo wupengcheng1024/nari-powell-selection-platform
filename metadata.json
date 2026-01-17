@@ -1,0 +1,8 @@
+{
+  "name": "NARI Powell Selection Platform",
+  "description": "An integrated intelligent electrical design and selection platform for NARI Powell, covering the full workflow from PLM mission reception to cabinet selection, parametric design, busbar routing, and BOM generation.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
