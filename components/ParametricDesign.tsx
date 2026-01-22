@@ -9,17 +9,17 @@ type DesignTab = 'dimension' | 'compartments' | 'breaker' | 'door' | 'ventilatio
 
 // [修改点 1] 定义图片映射表，方便你后续替换成真实图片路径
 const IMAGE_MAP = {
-  dimension: '../resources/images/zhongya/STD-KYN28-IN.png', // 基本尺寸默认图
+  dimension: '../public/images/zhongya/STD-KYN28-IN.png', // 基本尺寸默认图
   compartments: {
-    main: '../resources/images/placeholders/compartments-main.png', // 隔室划分默认图
-    '二次仪表室': '../resources/images/placeholders/comp-meter.png',
-    '母线室': '../resources/images/darametric-design/comp-busbar.png',
-    '断路器室': '../resources/images/darametric-design/breaker-view1.png',
-    '电缆室': '../resources/images/darametric-design/comp-cable.png',
+    main: '../public/images/placeholders/compartments-main.png', // 隔室划分默认图
+    '二次仪表室': '../public/images/placeholders/comp-meter.png',
+    '母线室': '../public/images/darametric-design/comp-busbar.png',
+    '断路器室': '../public/images/darametric-design/breaker-view1.png',
+    '电缆室': '../public/images/darametric-design/comp-cable.png',
   },
-  breaker: '../resources/images/darametric-design/breaker-view1.png', // 断路器位图
-  door: '../resources/images/placeholders/door-view.png',       // 仪表门图
-  default: '../resources/images/zhongya/STD-KYN28-IN.png'       // 兜底默认图
+  breaker: '../public/images/darametric-design/breaker-view1.png', // 断路器位图
+  door: '../public/images/placeholders/door-view.png',       // 仪表门图
+  default: '../public/images/zhongya/STD-KYN28-IN.png'       // 兜底默认图
 };
 
 const ParametricDesign: React.FC<ParametricDesignProps> = ({ onPrev, onNext }) => {
