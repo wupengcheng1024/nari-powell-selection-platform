@@ -34,20 +34,20 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
 
   const allStandards: StandardTemplate[] = [
     // 中压柜
-    { id: 'S001', name: 'KYN28A-12 进线柜方案', code: 'STD-KYN28-IN', type: '中压柜', description: '额定 1250A/31.5kA，铠装移开式。', tags: ['中压', '1250A', '10kV'], imageUrl: 'public/images/zhongya/STD-KYN28-IN.png' },
-    { id: 'S002', name: 'KYN28A-12 馈线柜方案', code: 'STD-KYN28-OUT', type: '中压柜', description: '典型 630A 分支馈电，内置真空断路器。', tags: ['中压', '630A', '馈线'], imageUrl: 'public/images/zhongya/STD-KYN28-IN.png' },
-    { id: 'S003', name: 'KYN28A-12 PT柜方案', code: 'STD-KYN28-PT', type: '中压柜', description: '母线电压测量与监测，带三相PT。', tags: ['测量', 'PT'], imageUrl: 'public/images/zhongya/STD-KYN28-IN.png' },
+    { id: 'S001', name: 'KYN28A-12 进线柜方案', code: 'STD-KYN28-IN', type: '中压柜', description: '额定 1250A/31.5kA，铠装移开式。', tags: ['中压', '1250A', '10kV'], imageUrl: '/images/zhongya/STD-KYN28-IN.png' },
+    { id: 'S002', name: 'KYN28A-12 馈线柜方案', code: 'STD-KYN28-OUT', type: '中压柜', description: '典型 630A 分支馈电，内置真空断路器。', tags: ['中压', '630A', '馈线'], imageUrl: '/images/zhongya/STD-KYN28-IN.png' },
+    { id: 'S003', name: 'KYN28A-12 PT柜方案', code: 'STD-KYN28-PT', type: '中压柜', description: '母线电压测量与监测，带三相PT。', tags: ['测量', 'PT'], imageUrl: '/images/zhongya/STD-KYN28-IN.png' },
 
     // 低压柜
-    { id: 'L001', name: 'GCS 低压进线柜', code: 'STD-GCS-IN', type: '低压柜', description: '额定 2500A，ACB 抽屉式安装，防护等级 IP40。', tags: ['低压', '2500A', 'AC400V'], imageUrl: 'public/images/diya/STD-GCS-IN.png' },
-    { id: 'L002', name: 'GCS 抽屉出线柜 (1/2单元)', code: 'STD-GCS-OUT', type: '低压柜', description: '模块化抽屉设计，支持 8-11 个回路。', tags: ['模块化', '多回路', '抽屉'], imageUrl: 'public/images/diya/STD-GCS-IN.png' },
-    { id: 'L003', name: 'MNS 马达控制中心', code: 'STD-MNS-MCC', type: '低压柜', description: '适用于大型工厂电机集中控制。', tags: ['MCC', '过程控制'], imageUrl: 'public/images/diya/STD-MNS-MCC.png' },
-    { id: 'L004', name: '电容补偿柜', code: 'STD-LV-CAP', type: '低压柜', description: '自动无功补偿，提升系统功率因数。', tags: ['补偿', '节能'], imageUrl: 'public/images/diya/STD-LV-CAP.png' },
+    { id: 'L001', name: 'GCS 低压进线柜', code: 'STD-GCS-IN', type: '低压柜', description: '额定 2500A，ACB 抽屉式安装，防护等级 IP40。', tags: ['低压', '2500A', 'AC400V'], imageUrl: '/images/diya/STD-GCS-IN.png' },
+    { id: 'L002', name: 'GCS 抽屉出线柜 (1/2单元)', code: 'STD-GCS-OUT', type: '低压柜', description: '模块化抽屉设计，支持 8-11 个回路。', tags: ['模块化', '多回路', '抽屉'], imageUrl: '/images/diya/STD-GCS-IN.png' },
+    { id: 'L003', name: 'MNS 马达控制中心', code: 'STD-MNS-MCC', type: '低压柜', description: '适用于大型工厂电机集中控制。', tags: ['MCC', '过程控制'], imageUrl: '/images/diya/STD-MNS-MCC.png' },
+    { id: 'L004', name: '电容补偿柜', code: 'STD-LV-CAP', type: '低压柜', description: '自动无功补偿，提升系统功率因数。', tags: ['补偿', '节能'], imageUrl: '/images/diya/STD-LV-CAP.png' },
 
     // 箱变
-    { id: 'B001', name: 'YBM-12 欧式箱变', code: 'STD-BOX-EU', type: '箱变', description: '预装式变电站，三位一体结构，耐候性强。', tags: ['预装式', '10kV/0.4kV', '景观型'], imageUrl: 'public/images/xiangbian/STD-BOX-EU1.png' },
-    { id: 'B002', name: 'ZGS-12 美式箱变', code: 'STD-BOX-US', type: '箱变', description: '变压器身、高压负荷开关等置于同一油箱。', tags: ['组合式', '紧凑型'], imageUrl: 'public/images/xiangbian/STD-BOX-EU1.png' },
-    { id: 'B003', name: '光伏/风电专用箱变', code: 'STD-BOX-PV', type: '箱变', description: '新能源专用升压站，集成逆变与监控。', tags: ['新能源', '升压'], imageUrl: 'public/images/xiangbian/STD-BOX-EU1.png' },
+    { id: 'B001', name: 'YBM-12 欧式箱变', code: 'STD-BOX-EU', type: '箱变', description: '预装式变电站，三位一体结构，耐候性强。', tags: ['预装式', '10kV/0.4kV', '景观型'], imageUrl: '/images/xiangbian/STD-BOX-EU1.png' },
+    { id: 'B002', name: 'ZGS-12 美式箱变', code: 'STD-BOX-US', type: '箱变', description: '变压器身、高压负荷开关等置于同一油箱。', tags: ['组合式', '紧凑型'], imageUrl: '/images/xiangbian/STD-BOX-EU1.png' },
+    { id: 'B003', name: '光伏/风电专用箱变', code: 'STD-BOX-PV', type: '箱变', description: '新能源专用升压站，集成逆变与监控。', tags: ['新能源', '升压'], imageUrl: '/images/xiangbian/STD-BOX-EU1.png' },
   ];
 
   const filteredProjects = useMemo(() => {

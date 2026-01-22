@@ -51,7 +51,7 @@ const OutputExport: React.FC<OutputExportProps> = ({ onPrev }) => {
           {/* [修改点 2] 图片区域：使用 flex-1 占据上方剩余空间 */}
           <div className="flex-1 relative w-full flex items-center justify-center min-h-0">
             <img
-              src="../public/images/diya/STD-GCS-IN.png"
+              src="/images/diya/STD-GCS-IN.png"
               alt="KYN28 3D Assembly"
               className="max-h-full max-w-full object-contain drop-shadow-[0_0_100px_rgba(59,130,246,0.3)] animate-in zoom-in-95 duration-1000"
             />
