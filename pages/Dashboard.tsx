@@ -26,10 +26,10 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
   ];
 
   const materials: Material[] = [
-    { id: 'M001', name: '真空断路器', model: 'VSI-12/1250-31.5', brand: '南瑞帕威尔', category: '断路器', stock: 124, price: '￥18,500', unit: '台', thumbnail: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=300&h=300&q=80' },
-    { id: 'M002', name: '电流互感器', model: 'LZZBJ9-10/150b/2', brand: '特变电工', category: '互感器', stock: 450, price: '￥1,200', unit: '只', thumbnail: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=300&h=300&q=80' },
-    { id: 'M003', name: '低压塑壳断路器', model: 'NM1-125S', brand: '正泰', category: '断路器', stock: 500, price: '￥450', unit: '只', thumbnail: 'https://images.unsplash.com/photo-1614935151651-0bea6508db6b?auto=format&fit=crop&w=300&h=300&q=80' },
-    { id: 'M004', name: '智能型万能断路器', model: 'RDW5-2000', brand: '人民电器', category: '断路器', stock: 35, price: '￥12,800', unit: '台', thumbnail: 'https://images.unsplash.com/photo-1614935151651-0bea6508db6b?auto=format&fit=crop&w=300&h=300&q=80' },
+    { id: 'M001', name: '真空断路器', model: 'VSI-12/1250-31.5', brand: '南瑞帕威尔', category: '断路器', stock: 124, price: '￥18,500', unit: '台', thumbnail: '/images/bom/真空断路器.png' },
+    { id: 'M002', name: '电流互感器', model: 'LZZBJ9-10/150b/2', brand: '特变电工', category: '互感器', stock: 450, price: '￥1,200', unit: '只', thumbnail: '/images/bom/电流互感器.png' },
+    { id: 'M003', name: '低压塑壳断路器', model: 'NM1-125S', brand: '正泰', category: '断路器', stock: 500, price: '￥450', unit: '只', thumbnail: '/images/bom/塑壳.png' },
+    { id: 'M004', name: '智能型万能断路器', model: 'RDW5-2000', brand: '人民电器', category: '断路器', stock: 35, price: '￥12,800', unit: '台', thumbnail: '/images/bom/框架.png' },
   ];
 
   const allStandards: StandardTemplate[] = [
@@ -256,7 +256,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
       <h3 className="text-2xl font-bold text-slate-400 mb-2">{moduleName}</h3>
       <div className="px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-xs font-bold mb-6">正在进行数字化重构 (In Development)</div>
       <p className="max-w-md text-center text-slate-400 text-sm leading-relaxed">
-        该模块属于 2025 数字化转型二期规划。完成后将支持基于 AI 的全自动{moduleName}能力，并实现与南瑞 PLM 及 ERP 系统的全链路闭环对接。
+        该模块属于 2026 数字化转型二期规划。完成后将支持基于 AI 的全自动{moduleName}能力，并实现与南瑞 PLM 及 ERP 系统的全链路闭环对接。
       </p>
       <button
         onClick={() => setCurrentTab('overview')}

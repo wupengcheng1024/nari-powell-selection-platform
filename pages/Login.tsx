@@ -19,7 +19,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <svg width="100%" height="100%">
           <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1"/>
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1" />
           </pattern>
           <rect width="100%" height="100%" fill="url(#grid)" />
         </svg>
@@ -37,8 +37,8 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-1">工号/用户名</label>
-            <input 
-              type="text" 
+            <input
+              type="text"
               required
               className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
               placeholder="请输入工号"
@@ -48,8 +48,8 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
           </div>
           <div>
             <label className="block text-sm font-medium text-slate-700 mb-1">密码</label>
-            <input 
-              type="password" 
+            <input
+              type="password"
               required
               className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
               placeholder="请输入密码"
@@ -64,7 +64,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
             </label>
             <button type="button" className="text-sm nari-blue hover:underline">忘记密码?</button>
           </div>
-          <button 
+          <button
             type="submit"
             className="w-full py-3 nari-bg text-white rounded-lg font-semibold hover:bg-blue-700 transition shadow-lg"
           >
@@ -74,7 +74,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
 
         <div className="mt-8 pt-6 border-t border-slate-100 flex justify-between items-center opacity-60">
           <img src="https://picsum.photos/80/30?grayscale" alt="Rongdi Logo" className="h-6" />
-          <span className="text-xs text-slate-500">苏州榕迪软件科技 | 2025 v1.0</span>
+          <span className="text-xs text-slate-500">苏州榕迪软件科技 | 2026 v1.0</span>
         </div>
       </div>
     </div>
