@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { BOMItem } from '../types';
 
@@ -35,54 +34,60 @@ const OutputExport: React.FC<OutputExportProps> = ({ onPrev }) => {
   return (
     <div className="h-full flex flex-row gap-0 -m-8 overflow-hidden bg-white">
       {/* LEFT HALF: 3D Assembly Visualizer */}
-      <section className="w-1/2 h-full bg-slate-950 relative flex items-center justify-center p-12 overflow-hidden border-r border-slate-800">
-        {/* Subtle CAD Grid Overlay */}
+      <section className="w-1/2 h-full bg-slate-950 relative flex flex-col p-12 overflow-hidden border-r border-slate-800">
+        {/* Subtle CAD Grid Overlay (背景保持不变) */}
         <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#334155 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 via-transparent to-black/60 pointer-events-none"></div>
 
-        {/* Main Cabinet Image */}
-        <div className="relative z-10 w-full h-full flex items-center justify-center">
-          <img 
-            src="input_file_0.png" 
-            alt="KYN28 3D Assembly" 
-            className="max-h-[85%] w-auto object-contain drop-shadow-[0_0_100px_rgba(59,130,246,0.3)] animate-in zoom-in-95 duration-1000"
-          />
-          
-          {/* Floating Callouts */}
-          <div className="absolute top-[20%] left-[60%] animate-pulse">
-            <div className="flex items-center gap-3">
-              <div className="w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_10px_#3b82f6]"></div>
-              <div className="px-3 py-1.5 bg-slate-900/80 backdrop-blur border border-slate-700 rounded-lg">
-                <p className="text-[10px] text-blue-400 font-bold">主母排室 - 校验合格</p>
+        {/* Top Right Buttons (保持绝对定位在右上角) */}
+        <div className="absolute top-10 right-10 flex gap-2 z-20">
+          <button className="p-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-white/60 transition"><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg></button>
+          <button className="p-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-white/60 transition"><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg></button>
+        </div>
+
+        {/* [修改点 1] 主内容容器改为 flex-col，垂直排列图片和文字 */}
+        <div className="flex-1 w-full flex flex-col min-h-0 relative z-10">
+
+          {/* [修改点 2] 图片区域：使用 flex-1 占据上方剩余空间 */}
+          <div className="flex-1 relative w-full flex items-center justify-center min-h-0">
+            <img
+              src="../resources/images/diya/STD-GCS-IN.png"
+              alt="KYN28 3D Assembly"
+              className="max-h-full max-w-full object-contain drop-shadow-[0_0_100px_rgba(59,130,246,0.3)] animate-in zoom-in-95 duration-1000"
+            />
+
+            {/* [保持不变] 悬浮标注：依然相对于图片容器定位 */}
+            <div className="absolute top-[20%] left-[60%] animate-pulse">
+              <div className="flex items-center gap-3">
+                <div className="w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_10px_#3b82f6]"></div>
+                <div className="px-3 py-1.5 bg-slate-900/80 backdrop-blur border border-slate-700 rounded-lg">
+                  <p className="text-[10px] text-blue-400 font-bold">主母排室 - 校验合格</p>
+                </div>
+              </div>
+            </div>
+            <div className="absolute top-[50%] left-[30%] animate-pulse delay-700">
+              <div className="flex items-center gap-3 flex-row-reverse">
+                <div className="w-3 h-3 rounded-full bg-green-500 shadow-[0_0_10px_#22c55e]"></div>
+                <div className="px-3 py-1.5 bg-slate-900/80 backdrop-blur border border-slate-700 rounded-lg">
+                  <p className="text-[10px] text-green-400 font-bold">断路器室 - 轨道吻合</p>
+                </div>
               </div>
             </div>
           </div>
-          <div className="absolute top-[50%] left-[30%] animate-pulse delay-700">
-            <div className="flex items-center gap-3 flex-row-reverse">
-              <div className="w-3 h-3 rounded-full bg-green-500 shadow-[0_0_10px_#22c55e]"></div>
-              <div className="px-3 py-1.5 bg-slate-900/80 backdrop-blur border border-slate-700 rounded-lg">
-                <p className="text-[10px] text-green-400 font-bold">断路器室 - 轨道吻合</p>
-              </div>
+
+          {/* [修改点 3] 文字区域：放在图片下方，不再绝对定位 */}
+          <div className="mt-8 flex flex-col gap-2 w-full">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+              <span className="text-[10px] text-white/40 uppercase tracking-widest font-mono">Real-time Digital Twin Ready</span>
             </div>
+            <h1 className="text-white font-bold text-2xl tracking-tight">KYN28A-12 <span className="text-blue-500">Master View</span></h1>
           </div>
-        </div>
 
-        {/* Branding & Status */}
-        <div className="absolute bottom-10 left-10 flex flex-col gap-2">
-           <div className="flex items-center gap-2">
-             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-             <span className="text-[10px] text-white/40 uppercase tracking-widest font-mono">Real-time Digital Twin Ready</span>
-           </div>
-           <h1 className="text-white font-bold text-2xl tracking-tight">KYN28A-12 <span className="text-blue-500">Master View</span></h1>
-        </div>
-
-        <div className="absolute top-10 right-10 flex gap-2">
-           <button className="p-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-white/60 transition"><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg></button>
-           <button className="p-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-white/60 transition"><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg></button>
         </div>
       </section>
 
-      {/* RIGHT HALF: Info & Exports */}
+      {/* RIGHT HALF: Info & Exports (保持不变) */}
       <section className="w-1/2 h-full flex flex-col bg-slate-50 overflow-y-auto">
         <div className="p-10 space-y-10">
           {/* Header */}
@@ -146,8 +151,8 @@ const OutputExport: React.FC<OutputExportProps> = ({ onPrev }) => {
           {/* BOM Mini Table */}
           <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
             <div className="px-6 py-4 border-b bg-slate-50 flex justify-between items-center">
-               <h4 className="text-xs font-bold text-slate-700">关键物料核对 (eBOM Preview)</h4>
-               <span className="text-[10px] text-slate-400">共 5 项核心件</span>
+              <h4 className="text-xs font-bold text-slate-700">关键物料核对 (eBOM Preview)</h4>
+              <span className="text-[10px] text-slate-400">共 5 项核心件</span>
             </div>
             <table className="w-full text-[11px] text-left">
               <thead className="bg-white text-slate-400 font-bold uppercase">
@@ -178,25 +183,25 @@ const OutputExport: React.FC<OutputExportProps> = ({ onPrev }) => {
 
           {/* Final Sync Action */}
           <div className="bg-slate-900 rounded-[2rem] p-8 flex flex-col gap-6 relative overflow-hidden group shadow-2xl border border-slate-800">
-             <div className="relative z-10">
-               <h4 className="text-white font-bold text-lg">完成并闭环同步</h4>
-               <p className="text-slate-400 text-xs mt-1 leading-relaxed">数字化成果将回传至 PLM 任务 WBS 节点，并自动触发钣金与铜排的生产下料指令。</p>
-             </div>
-             <button 
-               onClick={handleSync}
-               disabled={isSyncing}
-               className={`w-full py-4 rounded-2xl font-bold transition-all flex items-center justify-center gap-3 relative z-10 ${isSyncing ? 'bg-slate-700 text-slate-400 cursor-wait' : 'nari-bg text-white hover:bg-blue-700 shadow-xl shadow-blue-500/20 active:scale-[0.98]'}`}
-             >
-               {isSyncing ? (
-                 <>
-                   <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
-                   正在回传 PLM...
-                 </>
-               ) : (
-                 '一键提交成果与发布生产'
-               )}
-             </button>
-             <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-blue-600/10 rounded-full blur-[60px]"></div>
+            <div className="relative z-10">
+              <h4 className="text-white font-bold text-lg">完成并闭环同步</h4>
+              <p className="text-slate-400 text-xs mt-1 leading-relaxed">数字化成果将回传至 PLM 任务 WBS 节点，并自动触发钣金与铜排的生产下料指令。</p>
+            </div>
+            <button
+              onClick={handleSync}
+              disabled={isSyncing}
+              className={`w-full py-4 rounded-2xl font-bold transition-all flex items-center justify-center gap-3 relative z-10 ${isSyncing ? 'bg-slate-700 text-slate-400 cursor-wait' : 'nari-bg text-white hover:bg-blue-700 shadow-xl shadow-blue-500/20 active:scale-[0.98]'}`}
+            >
+              {isSyncing ? (
+                <>
+                  <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                  正在回传 PLM...
+                </>
+              ) : (
+                '一键提交成果与发布生产'
+              )}
+            </button>
+            <div className="absolute -right-10 -bottom-10 w-40 h-40 bg-blue-600/10 rounded-full blur-[60px]"></div>
           </div>
 
           {/* Navigation */}

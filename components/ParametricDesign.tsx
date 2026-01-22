@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface ParametricDesignProps {
   onPrev: () => void;
@@ -8,8 +7,37 @@ interface ParametricDesignProps {
 
 type DesignTab = 'dimension' | 'compartments' | 'breaker' | 'door' | 'ventilation' | 'grounding';
 
+// [修改点 1] 定义图片映射表，方便你后续替换成真实图片路径
+const IMAGE_MAP = {
+  dimension: '../resources/images/zhongya/STD-KYN28-IN.png', // 基本尺寸默认图
+  compartments: {
+    main: '../resources/images/placeholders/compartments-main.png', // 隔室划分默认图
+    '二次仪表室': '../resources/images/placeholders/comp-meter.png',
+    '母线室': '../resources/images/darametric-design/comp-busbar.png',
+    '断路器室': '../resources/images/darametric-design/breaker-view1.png',
+    '电缆室': '../resources/images/darametric-design/comp-cable.png',
+  },
+  breaker: '../resources/images/darametric-design/breaker-view1.png', // 断路器位图
+  door: '../resources/images/placeholders/door-view.png',       // 仪表门图
+  default: '../resources/images/zhongya/STD-KYN28-IN.png'       // 兜底默认图
+};
+
 const ParametricDesign: React.FC<ParametricDesignProps> = ({ onPrev, onNext }) => {
   const [activeTab, setActiveTab] = useState<DesignTab>('dimension');
+
+  // [修改点 2] 新增预览图状态，初始化为 dimension 对应的图
+  const [previewImage, setPreviewImage] = useState<string>(IMAGE_MAP.dimension);
+
+  // [修改点 3] 处理 Tab 切换，同时切换图片
+  const handleTabChange = (tab: DesignTab) => {
+    setActiveTab(tab);
+    // 根据 Tab 类型设置默认图片
+    if (tab === 'dimension') setPreviewImage(IMAGE_MAP.dimension);
+    else if (tab === 'compartments') setPreviewImage(IMAGE_MAP.compartments.main);
+    else if (tab === 'breaker') setPreviewImage(IMAGE_MAP.breaker);
+    else if (tab === 'door') setPreviewImage(IMAGE_MAP.door);
+    // 其他 Tab 如果没有特定图，可以保持当前或设为默认
+  };
 
   // 隔室数据状态
   const [compartments, setCompartments] = useState([
@@ -30,13 +58,26 @@ const ParametricDesign: React.FC<ParametricDesignProps> = ({ onPrev, onNext }) =
         {/* 参数设置 */}
         <div className="flex-1 space-y-6">
           {compartments.map((comp, idx) => (
-            <div key={idx} className="p-4 bg-slate-50 rounded-2xl border border-slate-200 hover:border-blue-400 transition group">
+            <div
+              key={idx}
+              // [修改点 4] 添加 cursor-pointer 和 hover 效果，表明可点击
+              // 添加 onClick 事件来切换图片
+              onClick={() => {
+                // 类型断言或检查 key 是否存在于 map 中
+                const imgKey = comp.name as keyof typeof IMAGE_MAP.compartments;
+                if (IMAGE_MAP.compartments[imgKey]) {
+                  setPreviewImage(IMAGE_MAP.compartments[imgKey]);
+                }
+              }}
+              className="p-4 bg-slate-50 rounded-2xl border border-slate-200 hover:border-blue-400 hover:shadow-md hover:bg-white transition-all group cursor-pointer"
+            >
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
                   <div className={`w-3 h-3 rounded-full ${comp.color.replace('/20', '')}`}></div>
-                  <span className="text-sm font-bold text-slate-700">{comp.name}</span>
+                  <span className="text-sm font-bold text-slate-700 group-hover:text-blue-600 transition-colors">{comp.name}</span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2" onClick={(e) => e.stopPropagation()}>
+                  {/* 注意：输入框点击需要阻止冒泡，防止触发外层的图片切换（如果只想点行切换的话，这里可以保留冒泡也行，看体验） */}
                   <input
                     type="number"
                     value={comp.height}
@@ -51,7 +92,7 @@ const ParametricDesign: React.FC<ParametricDesignProps> = ({ onPrev, onNext }) =
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <div>
+                <div onClick={(e) => e.stopPropagation()}>
                   <label className="text-[10px] text-slate-400 uppercase font-bold mb-1 block">防护等级</label>
                   <select className="w-full text-[10px] p-1.5 border rounded bg-white outline-none">
                     <option>IP2X</option>
@@ -59,7 +100,7 @@ const ParametricDesign: React.FC<ParametricDesignProps> = ({ onPrev, onNext }) =
                     <option selected>IP4X</option>
                   </select>
                 </div>
-                <div>
+                <div onClick={(e) => e.stopPropagation()}>
                   <label className="text-[10px] text-slate-400 uppercase font-bold mb-1 block">泄压方向</label>
                   <select className="w-full text-[10px] p-1.5 border rounded bg-white outline-none">
                     <option>顶部泄压</option>
@@ -75,7 +116,7 @@ const ParametricDesign: React.FC<ParametricDesignProps> = ({ onPrev, onNext }) =
           </div>
         </div>
 
-        {/* 截面模拟预览 */}
+        {/* 截面模拟预览 (保持不变) */}
         <div className="w-48 bg-slate-100 rounded-3xl p-4 border border-slate-200 flex flex-col gap-1 shadow-inner relative">
           <div className="absolute -left-12 inset-y-0 flex flex-col justify-between py-4 text-[10px] text-slate-400 font-mono">
             <span>2200</span>
@@ -85,14 +126,18 @@ const ParametricDesign: React.FC<ParametricDesignProps> = ({ onPrev, onNext }) =
           {compartments.map((comp, idx) => (
             <div
               key={idx}
-              className={`${comp.color} ${comp.borderColor} border-2 rounded-xl flex items-center justify-center text-center transition-all duration-500 group relative hover:brightness-95`}
+              // 这里也可以加点击事件，让用户点右侧柱状图也能切换预览
+              onClick={() => {
+                const imgKey = comp.name as keyof typeof IMAGE_MAP.compartments;
+                if (IMAGE_MAP.compartments[imgKey]) setPreviewImage(IMAGE_MAP.compartments[imgKey]);
+              }}
+              className={`${comp.color} ${comp.borderColor} border-2 rounded-xl flex items-center justify-center text-center transition-all duration-500 group relative hover:brightness-95 cursor-pointer`}
               style={{ flex: comp.height }}
             >
               <div className="flex flex-col">
                 <span className="text-[10px] font-bold text-slate-600 truncate px-2">{comp.name}</span>
                 <span className="text-[8px] text-slate-500 font-mono">{comp.height}mm</span>
               </div>
-              {/* 装饰性细节：隔板 */}
               <div className="absolute -bottom-0.5 left-0 right-0 h-1 bg-slate-300 opacity-50"></div>
             </div>
           ))}
@@ -103,6 +148,7 @@ const ParametricDesign: React.FC<ParametricDesignProps> = ({ onPrev, onNext }) =
 
   const renderDimensionConfig = () => (
     <div className="animate-in fade-in duration-500 space-y-8">
+      {/* ... (renderDimensionConfig 内容保持不变) ... */}
       <div className="flex items-center justify-between pb-4 border-b">
         <h4 className="font-bold text-slate-800">外形基本参数 - KYN28A</h4>
         <span className="text-xs text-slate-400">最后同步于: 2分钟前</span>
@@ -185,30 +231,30 @@ const ParametricDesign: React.FC<ParametricDesignProps> = ({ onPrev, onNext }) =
       </div>
 
       <div className="flex-1 flex gap-6 min-h-0">
-        {/* 左侧导航 */}
+        {/* 左侧导航 - [修改点 5] onClick 改为调用 handleTabChange */}
         <div className="w-72 bg-white rounded-2xl border border-slate-200 overflow-y-auto p-4 space-y-4 shadow-sm">
           <h4 className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest px-2">Design Explorer</h4>
           <nav className="space-y-1">
             <button
-              onClick={() => setActiveTab('dimension')}
+              onClick={() => handleTabChange('dimension')}
               className={`w-full text-left px-4 py-3 rounded-xl text-sm font-bold transition-all ${activeTab === 'dimension' ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20' : 'text-slate-500 hover:bg-slate-50'}`}
             >
               基本尺寸与外形
             </button>
             <button
-              onClick={() => setActiveTab('compartments')}
+              onClick={() => handleTabChange('compartments')}
               className={`w-full text-left px-4 py-3 rounded-xl text-sm font-bold transition-all ${activeTab === 'compartments' ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20' : 'text-slate-500 hover:bg-slate-50'}`}
             >
               柜内隔室划分
             </button>
             <button
-              onClick={() => setActiveTab('breaker')}
+              onClick={() => handleTabChange('breaker')}
               className={`w-full text-left px-4 py-3 rounded-xl text-sm font-bold transition-all ${activeTab === 'breaker' ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20' : 'text-slate-500 hover:bg-slate-50'}`}
             >
               断路器安装位
             </button>
             <button
-              onClick={() => setActiveTab('door')}
+              onClick={() => handleTabChange('door')}
               className={`w-full text-left px-4 py-3 rounded-xl text-sm font-bold transition-all ${activeTab === 'door' ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20' : 'text-slate-500 hover:bg-slate-50'}`}
             >
               二次仪表门设计
@@ -239,7 +285,16 @@ const ParametricDesign: React.FC<ParametricDesignProps> = ({ onPrev, onNext }) =
             </button>
           </div>
           <div className="flex-1 flex items-center justify-center p-8 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-slate-800 to-black">
-            <img src="../resources/images/zhongya/STD-KYN28-IN.png" className="max-h-full max-w-full object-contain drop-shadow-[0_0_50px_rgba(59,130,246,0.2)] group-hover:scale-105 transition duration-1000" alt="3D Real-time Model" />
+            {/* [修改点 6] src 绑定 previewImage 状态 */}
+            <img
+              src={previewImage}
+              className="max-h-full max-w-full object-contain drop-shadow-[0_0_50px_rgba(59,130,246,0.2)] group-hover:scale-105 transition duration-500"
+              alt="3D Real-time Model"
+              onError={(e) => {
+                // 图片加载失败时回退到默认图，防止占位符 404 导致裂图
+                e.currentTarget.src = IMAGE_MAP.default;
+              }}
+            />
           </div>
           <div className="h-12 bg-black/40 border-t border-slate-800/50 flex items-center justify-between px-6 text-[9px] font-mono tracking-tighter text-slate-500 uppercase">
             <span>Layers: Structure | Cutouts | Internal</span>
