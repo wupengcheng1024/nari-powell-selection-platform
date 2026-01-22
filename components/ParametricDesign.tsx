@@ -32,39 +32,39 @@ const ParametricDesign: React.FC<ParametricDesignProps> = ({ onPrev, onNext }) =
           {compartments.map((comp, idx) => (
             <div key={idx} className="p-4 bg-slate-50 rounded-2xl border border-slate-200 hover:border-blue-400 transition group">
               <div className="flex items-center justify-between mb-3">
-                 <div className="flex items-center gap-2">
-                   <div className={`w-3 h-3 rounded-full ${comp.color.replace('/20', '')}`}></div>
-                   <span className="text-sm font-bold text-slate-700">{comp.name}</span>
-                 </div>
-                 <div className="flex items-center gap-2">
-                   <input 
-                     type="number" 
-                     value={comp.height} 
-                     onChange={(e) => {
-                       const newComps = [...compartments];
-                       newComps[idx].height = parseInt(e.target.value) || 0;
-                       setCompartments(newComps);
-                     }}
-                     className="w-20 px-2 py-1 bg-white border border-slate-200 rounded text-xs text-right font-mono"
-                   />
-                   <span className="text-[10px] text-slate-400">mm</span>
-                 </div>
+                <div className="flex items-center gap-2">
+                  <div className={`w-3 h-3 rounded-full ${comp.color.replace('/20', '')}`}></div>
+                  <span className="text-sm font-bold text-slate-700">{comp.name}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <input
+                    type="number"
+                    value={comp.height}
+                    onChange={(e) => {
+                      const newComps = [...compartments];
+                      newComps[idx].height = parseInt(e.target.value) || 0;
+                      setCompartments(newComps);
+                    }}
+                    className="w-20 px-2 py-1 bg-white border border-slate-200 rounded text-xs text-right font-mono"
+                  />
+                  <span className="text-[10px] text-slate-400">mm</span>
+                </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                   <label className="text-[10px] text-slate-400 uppercase font-bold mb-1 block">防护等级</label>
-                   <select className="w-full text-[10px] p-1.5 border rounded bg-white outline-none">
-                     <option>IP2X</option>
-                     <option>IP3X</option>
-                     <option selected>IP4X</option>
-                   </select>
+                  <label className="text-[10px] text-slate-400 uppercase font-bold mb-1 block">防护等级</label>
+                  <select className="w-full text-[10px] p-1.5 border rounded bg-white outline-none">
+                    <option>IP2X</option>
+                    <option>IP3X</option>
+                    <option selected>IP4X</option>
+                  </select>
                 </div>
                 <div>
-                   <label className="text-[10px] text-slate-400 uppercase font-bold mb-1 block">泄压方向</label>
-                   <select className="w-full text-[10px] p-1.5 border rounded bg-white outline-none">
-                     <option>顶部泄压</option>
-                     <option>后部泄压</option>
-                   </select>
+                  <label className="text-[10px] text-slate-400 uppercase font-bold mb-1 block">泄压方向</label>
+                  <select className="w-full text-[10px] p-1.5 border rounded bg-white outline-none">
+                    <option>顶部泄压</option>
+                    <option>后部泄压</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -83,8 +83,8 @@ const ParametricDesign: React.FC<ParametricDesignProps> = ({ onPrev, onNext }) =
             <span>0</span>
           </div>
           {compartments.map((comp, idx) => (
-            <div 
-              key={idx} 
+            <div
+              key={idx}
               className={`${comp.color} ${comp.borderColor} border-2 rounded-xl flex items-center justify-center text-center transition-all duration-500 group relative hover:brightness-95`}
               style={{ flex: comp.height }}
             >
@@ -161,13 +161,13 @@ const ParametricDesign: React.FC<ParametricDesignProps> = ({ onPrev, onNext }) =
         </div>
       </div>
       <div className="mt-8 bg-orange-50 border border-orange-100 p-6 rounded-2xl flex gap-4">
-         <div className="text-orange-600 shrink-0">
-           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-         </div>
-         <div>
-           <h5 className="text-orange-800 font-bold text-sm uppercase tracking-tight">参数规则冲突提醒 (Rule Engine)</h5>
-           <p className="text-orange-700 text-xs mt-1 leading-relaxed">当前柜宽 800mm 与内部断路器导轨 VSI(12kV) 存在理论避让间距不足警告。建议增加隔板间距或调整设计公差。</p>
-         </div>
+        <div className="text-orange-600 shrink-0">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+        </div>
+        <div>
+          <h5 className="text-orange-800 font-bold text-sm uppercase tracking-tight">参数规则冲突提醒 (Rule Engine)</h5>
+          <p className="text-orange-700 text-xs mt-1 leading-relaxed">当前柜宽 800mm 与内部断路器导轨 VSI(12kV) 存在理论避让间距不足警告。建议增加隔板间距或调整设计公差。</p>
+        </div>
       </div>
     </div>
   );
@@ -189,25 +189,25 @@ const ParametricDesign: React.FC<ParametricDesignProps> = ({ onPrev, onNext }) =
         <div className="w-72 bg-white rounded-2xl border border-slate-200 overflow-y-auto p-4 space-y-4 shadow-sm">
           <h4 className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest px-2">Design Explorer</h4>
           <nav className="space-y-1">
-            <button 
+            <button
               onClick={() => setActiveTab('dimension')}
               className={`w-full text-left px-4 py-3 rounded-xl text-sm font-bold transition-all ${activeTab === 'dimension' ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20' : 'text-slate-500 hover:bg-slate-50'}`}
             >
               基本尺寸与外形
             </button>
-            <button 
+            <button
               onClick={() => setActiveTab('compartments')}
               className={`w-full text-left px-4 py-3 rounded-xl text-sm font-bold transition-all ${activeTab === 'compartments' ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20' : 'text-slate-500 hover:bg-slate-50'}`}
             >
               柜内隔室划分
             </button>
-            <button 
+            <button
               onClick={() => setActiveTab('breaker')}
               className={`w-full text-left px-4 py-3 rounded-xl text-sm font-bold transition-all ${activeTab === 'breaker' ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20' : 'text-slate-500 hover:bg-slate-50'}`}
             >
               断路器安装位
             </button>
-            <button 
+            <button
               onClick={() => setActiveTab('door')}
               className={`w-full text-left px-4 py-3 rounded-xl text-sm font-bold transition-all ${activeTab === 'door' ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/20' : 'text-slate-500 hover:bg-slate-50'}`}
             >
@@ -220,12 +220,12 @@ const ParametricDesign: React.FC<ParametricDesignProps> = ({ onPrev, onNext }) =
 
         {/* 主配置区 */}
         <div className="flex-1 bg-white rounded-2xl border border-slate-200 p-8 overflow-y-auto shadow-sm">
-          {activeTab === 'dimension' ? renderDimensionConfig() : 
-           activeTab === 'compartments' ? renderCompartmentConfig() :
-           <div className="flex flex-col items-center justify-center h-full text-slate-400 animate-pulse">
-             <div className="text-4xl mb-4">⚙️</div>
-             <p className="font-bold">该模块配置逻辑正在载入中...</p>
-           </div>}
+          {activeTab === 'dimension' ? renderDimensionConfig() :
+            activeTab === 'compartments' ? renderCompartmentConfig() :
+              <div className="flex flex-col items-center justify-center h-full text-slate-400 animate-pulse">
+                <div className="text-4xl mb-4">⚙️</div>
+                <p className="font-bold">该模块配置逻辑正在载入中...</p>
+              </div>}
         </div>
 
         {/* 3D 实时预览 */}
@@ -239,11 +239,11 @@ const ParametricDesign: React.FC<ParametricDesignProps> = ({ onPrev, onNext }) =
             </button>
           </div>
           <div className="flex-1 flex items-center justify-center p-8 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-slate-800 to-black">
-             <img src="input_file_2.png" className="max-h-full max-w-full object-contain drop-shadow-[0_0_50px_rgba(59,130,246,0.2)] group-hover:scale-105 transition duration-1000" alt="3D Real-time Model" />
+            <img src="../resources/images/zhongya/STD-KYN28-IN.png" className="max-h-full max-w-full object-contain drop-shadow-[0_0_50px_rgba(59,130,246,0.2)] group-hover:scale-105 transition duration-1000" alt="3D Real-time Model" />
           </div>
           <div className="h-12 bg-black/40 border-t border-slate-800/50 flex items-center justify-between px-6 text-[9px] font-mono tracking-tighter text-slate-500 uppercase">
-             <span>Layers: Structure | Cutouts | Internal</span>
-             <span className="text-blue-500">SolidWorks Ready</span>
+            <span>Layers: Structure | Cutouts | Internal</span>
+            <span className="text-blue-500">SolidWorks Ready</span>
           </div>
         </div>
       </div>

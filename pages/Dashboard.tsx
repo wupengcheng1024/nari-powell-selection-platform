@@ -29,25 +29,25 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
     { id: 'M001', name: '真空断路器', model: 'VSI-12/1250-31.5', brand: '南瑞帕威尔', category: '断路器', stock: 124, price: '￥18,500', unit: '台', thumbnail: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=300&h=300&q=80' },
     { id: 'M002', name: '电流互感器', model: 'LZZBJ9-10/150b/2', brand: '特变电工', category: '互感器', stock: 450, price: '￥1,200', unit: '只', thumbnail: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=300&h=300&q=80' },
     { id: 'M003', name: '低压塑壳断路器', model: 'NM1-125S', brand: '正泰', category: '断路器', stock: 500, price: '￥450', unit: '只', thumbnail: 'https://images.unsplash.com/photo-1614935151651-0bea6508db6b?auto=format&fit=crop&w=300&h=300&q=80' },
-    { id: 'M004', name: '智能型万能断路器', model: 'RDW5-2000', brand: '人民电器', category: '断路器', stock: 35, price: '￥12,800', unit: '台', thumbnail: 'https://images.unsplash.com/photo-1558444479-c8f027d8a5db?auto=format&fit=crop&w=300&h=300&q=80' },
+    { id: 'M004', name: '智能型万能断路器', model: 'RDW5-2000', brand: '人民电器', category: '断路器', stock: 35, price: '￥12,800', unit: '台', thumbnail: 'https://images.unsplash.com/photo-1614935151651-0bea6508db6b?auto=format&fit=crop&w=300&h=300&q=80' },
   ];
 
   const allStandards: StandardTemplate[] = [
     // 中压柜
-    { id: 'S001', name: 'KYN28A-12 进线柜方案', code: 'STD-KYN28-IN', type: '中压柜', description: '额定 1250A/31.5kA，铠装移开式。', tags: ['中压', '1250A', '10kV'], imageUrl: 'input_file_0.png' },
-    { id: 'S002', name: 'KYN28A-12 馈线柜方案', code: 'STD-KYN28-OUT', type: '中压柜', description: '典型 630A 分支馈电，内置真空断路器。', tags: ['中压', '630A', '馈线'], imageUrl: 'input_file_1.png' },
-    { id: 'S003', name: 'KYN28A-12 PT柜方案', code: 'STD-KYN28-PT', type: '中压柜', description: '母线电压测量与监测，带三相PT。', tags: ['测量', 'PT'], imageUrl: 'input_file_2.png' },
-    
+    { id: 'S001', name: 'KYN28A-12 进线柜方案', code: 'STD-KYN28-IN', type: '中压柜', description: '额定 1250A/31.5kA，铠装移开式。', tags: ['中压', '1250A', '10kV'], imageUrl: 'resources/images/zhongya/STD-KYN28-IN.png' },
+    { id: 'S002', name: 'KYN28A-12 馈线柜方案', code: 'STD-KYN28-OUT', type: '中压柜', description: '典型 630A 分支馈电，内置真空断路器。', tags: ['中压', '630A', '馈线'], imageUrl: 'resources/images/zhongya/STD-KYN28-IN.png' },
+    { id: 'S003', name: 'KYN28A-12 PT柜方案', code: 'STD-KYN28-PT', type: '中压柜', description: '母线电压测量与监测，带三相PT。', tags: ['测量', 'PT'], imageUrl: 'resources/images/zhongya/STD-KYN28-IN.png' },
+
     // 低压柜
-    { id: 'L001', name: 'GCS 低压进线柜', code: 'STD-GCS-IN', type: '低压柜', description: '额定 2500A，ACB 抽屉式安装，防护等级 IP40。', tags: ['低压', '2500A', 'AC400V'], imageUrl: 'input_file_0.png' },
-    { id: 'L002', name: 'GCS 抽屉出线柜 (1/2单元)', code: 'STD-GCS-OUT', type: '低压柜', description: '模块化抽屉设计，支持 8-11 个回路。', tags: ['模块化', '多回路', '抽屉'], imageUrl: 'input_file_1.png' },
-    { id: 'L003', name: 'MNS 马达控制中心', code: 'STD-MNS-MCC', type: '低压柜', description: '适用于大型工厂电机集中控制。', tags: ['MCC', '过程控制'], imageUrl: 'input_file_2.png' },
-    { id: 'L004', name: '电容补偿柜', code: 'STD-LV-CAP', type: '低压柜', description: '自动无功补偿，提升系统功率因数。', tags: ['补偿', '节能'], imageUrl: 'input_file_3.png' },
+    { id: 'L001', name: 'GCS 低压进线柜', code: 'STD-GCS-IN', type: '低压柜', description: '额定 2500A，ACB 抽屉式安装，防护等级 IP40。', tags: ['低压', '2500A', 'AC400V'], imageUrl: 'resources/images/diya/STD-GCS-IN.png' },
+    { id: 'L002', name: 'GCS 抽屉出线柜 (1/2单元)', code: 'STD-GCS-OUT', type: '低压柜', description: '模块化抽屉设计，支持 8-11 个回路。', tags: ['模块化', '多回路', '抽屉'], imageUrl: 'resources/images/diya/STD-GCS-IN.png' },
+    { id: 'L003', name: 'MNS 马达控制中心', code: 'STD-MNS-MCC', type: '低压柜', description: '适用于大型工厂电机集中控制。', tags: ['MCC', '过程控制'], imageUrl: 'resources/images/diya/STD-MNS-MCC.png' },
+    { id: 'L004', name: '电容补偿柜', code: 'STD-LV-CAP', type: '低压柜', description: '自动无功补偿，提升系统功率因数。', tags: ['补偿', '节能'], imageUrl: 'resources/images/diya/STD-LV-CAP.png' },
 
     // 箱变
-    { id: 'B001', name: 'YBM-12 欧式箱变', code: 'STD-BOX-EU', type: '箱变', description: '预装式变电站，三位一体结构，耐候性强。', tags: ['预装式', '10kV/0.4kV', '景观型'], imageUrl: 'input_file_0.png' },
-    { id: 'B002', name: 'ZGS-12 美式箱变', code: 'STD-BOX-US', type: '箱变', description: '变压器身、高压负荷开关等置于同一油箱。', tags: ['组合式', '紧凑型'], imageUrl: 'input_file_3.png' },
-    { id: 'B003', name: '光伏/风电专用箱变', code: 'STD-BOX-PV', type: '箱变', description: '新能源专用升压站，集成逆变与监控。', tags: ['新能源', '升压'], imageUrl: 'input_file_1.png' },
+    { id: 'B001', name: 'YBM-12 欧式箱变', code: 'STD-BOX-EU', type: '箱变', description: '预装式变电站，三位一体结构，耐候性强。', tags: ['预装式', '10kV/0.4kV', '景观型'], imageUrl: 'resources/images/xiangbian/STD-BOX-EU1.png' },
+    { id: 'B002', name: 'ZGS-12 美式箱变', code: 'STD-BOX-US', type: '箱变', description: '变压器身、高压负荷开关等置于同一油箱。', tags: ['组合式', '紧凑型'], imageUrl: 'resources/images/xiangbian/STD-BOX-EU1.png' },
+    { id: 'B003', name: '光伏/风电专用箱变', code: 'STD-BOX-PV', type: '箱变', description: '新能源专用升压站，集成逆变与监控。', tags: ['新能源', '升压'], imageUrl: 'resources/images/xiangbian/STD-BOX-EU1.png' },
   ];
 
   const filteredProjects = useMemo(() => {
@@ -75,16 +75,16 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
       <div className="flex flex-wrap gap-4 items-center justify-between bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
         <div className="flex gap-4">
           <div className="relative">
-            <input 
-              type="text" 
-              placeholder="搜索 WBS 或项目名称..." 
+            <input
+              type="text"
+              placeholder="搜索 WBS 或项目名称..."
               className="pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm w-80 outline-none focus:ring-2 focus:ring-blue-500 transition"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
             <svg className="w-4 h-4 absolute left-3 top-2.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
           </div>
-          <select 
+          <select
             className="px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm outline-none"
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
@@ -114,11 +114,10 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
                   <div className="font-mono text-[10px] text-slate-400 mb-1">{p.wbs}</div>
                   <div className="font-bold text-slate-700">{p.name}</div>
                   <div className="mt-1 flex items-center gap-2">
-                    <span className={`px-2 py-0.5 rounded-full text-[9px] font-bold ${
-                      p.status === ProjectStatus.DESIGNING ? 'bg-blue-50 text-blue-600' : 
+                    <span className={`px-2 py-0.5 rounded-full text-[9px] font-bold ${p.status === ProjectStatus.DESIGNING ? 'bg-blue-50 text-blue-600' :
                       p.status === ProjectStatus.REVIEWING ? 'bg-amber-50 text-amber-600' :
-                      p.status === ProjectStatus.COMPLETED ? 'bg-green-50 text-green-600' : 'bg-slate-100 text-slate-500'
-                    }`}>{p.status}</span>
+                        p.status === ProjectStatus.COMPLETED ? 'bg-green-50 text-green-600' : 'bg-slate-100 text-slate-500'
+                      }`}>{p.status}</span>
                   </div>
                 </td>
                 <td className="px-8 py-5 text-sm text-slate-600">{p.customer}</td>
@@ -154,7 +153,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
         </div>
         <div className="flex bg-slate-100 p-1 rounded-2xl border border-slate-200">
           {(['中压柜', '低压柜', '箱变'] as StandardCategory[]).map(cat => (
-            <button 
+            <button
               key={cat}
               onClick={() => setActiveStandardCategory(cat)}
               className={`px-6 py-2 rounded-xl text-sm font-bold transition-all ${activeStandardCategory === cat ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-400 hover:text-slate-600'}`}
@@ -172,7 +171,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
               <img src={s.imageUrl} alt={s.name} className="max-h-full max-w-full object-contain drop-shadow-[0_0_40px_rgba(59,130,246,0.3)] group-hover:scale-110 transition duration-500" />
               <div className="absolute top-4 right-4 px-2 py-0.5 bg-blue-600 text-white text-[9px] font-bold rounded-lg shadow-lg">3D ASSET</div>
               <div className="absolute bottom-4 left-4 flex gap-1">
-                 {s.tags.slice(0, 2).map(t => <span key={t} className="px-2 py-0.5 bg-slate-800/80 backdrop-blur text-white/60 text-[8px] rounded uppercase font-mono">{t}</span>)}
+                {s.tags.slice(0, 2).map(t => <span key={t} className="px-2 py-0.5 bg-slate-800/80 backdrop-blur text-white/60 text-[8px] rounded uppercase font-mono">{t}</span>)}
               </div>
             </div>
             <div className="p-6 flex-1 flex flex-col">
@@ -200,14 +199,14 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
     <div className="p-8 space-y-6 animate-in fade-in duration-500">
       <div className="flex items-center justify-between">
         <div className="flex gap-4">
-          <input 
-            type="text" 
-            placeholder="搜索型号或物料名..." 
+          <input
+            type="text"
+            placeholder="搜索型号或物料名..."
             className="px-4 py-2 bg-white border border-slate-200 rounded-xl text-sm w-80 outline-none focus:ring-2 focus:ring-blue-500 transition"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <select 
+          <select
             className="px-4 py-2 bg-white border border-slate-200 rounded-xl text-sm outline-none"
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
@@ -229,7 +228,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
         {filteredMaterials.map(m => (
           <div key={m.id} className="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm flex gap-5 hover:border-blue-300 transition group">
             <div className="w-28 h-28 rounded-2xl bg-slate-50 border border-slate-100 overflow-hidden shrink-0">
-               <img src={m.thumbnail} className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+              <img src={m.thumbnail} className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
             </div>
             <div className="flex-1 flex flex-col py-1">
               <div className="flex justify-between items-start mb-2">
@@ -259,7 +258,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
       <p className="max-w-md text-center text-slate-400 text-sm leading-relaxed">
         该模块属于 2025 数字化转型二期规划。完成后将支持基于 AI 的全自动{moduleName}能力，并实现与南瑞 PLM 及 ERP 系统的全链路闭环对接。
       </p>
-      <button 
+      <button
         onClick={() => setCurrentTab('overview')}
         className="mt-10 px-8 py-3 bg-white border border-slate-200 text-slate-600 font-bold rounded-xl hover:bg-slate-50 transition"
       >
@@ -331,7 +330,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
                 <td className="px-8 py-4 font-mono text-xs text-slate-400">{p.wbs}</td>
                 <td className="px-8 py-4 font-bold text-slate-700">{p.name}</td>
                 <td className="px-8 py-4">
-                   <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold ${p.status === ProjectStatus.DESIGNING ? 'bg-blue-50 text-blue-600' : 'bg-slate-50 text-slate-600'}`}>{p.status}</span>
+                  <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold ${p.status === ProjectStatus.DESIGNING ? 'bg-blue-50 text-blue-600' : 'bg-slate-50 text-slate-600'}`}>{p.status}</span>
                 </td>
                 <td className="px-8 py-4 text-right">
                   <button onClick={() => onSelectProject(p.id)} className="px-4 py-1.5 rounded-lg border border-blue-200 text-blue-600 text-xs font-bold hover:bg-blue-600 hover:text-white transition-all">进入设计</button>
@@ -351,7 +350,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
           <div className="w-8 h-8 nari-bg rounded flex items-center justify-center font-bold text-lg shadow-lg">N</div>
           <span className="font-semibold tracking-tight">NARI POWELL</span>
         </div>
-        
+
         <div className="flex-1 overflow-y-auto py-4 px-3 space-y-6 scrollbar-hide">
           <div>
             <h4 className="px-4 mb-2 text-[10px] font-bold text-slate-500 uppercase tracking-widest">核心设计中枢</h4>
@@ -421,14 +420,14 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
       <main className="flex-1 flex flex-col ml-64 min-h-screen">
         <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 sticky top-0 z-30 shadow-sm backdrop-blur-md bg-white/80">
           <h2 className="text-lg font-bold text-slate-800 flex items-center gap-2">
-             <div className="w-2 h-6 nari-bg rounded-full"></div>
-            {currentTab === 'overview' ? '设计指挥中枢 (Overview)' : 
-             currentTab === 'projects' ? '项目管理中心' : 
-             currentTab === 'materials' ? '物料资产库 (ERP/BOM)' : 
-             currentTab === 'standards' ? '标准柜型方案库' : 
-             currentTab === 'door-cutout' ? '仪表门开孔调整工具' :
-             currentTab === 'bom-compare' ? 'BOM 比对分析引擎' :
-             '智能数字化模块'}
+            <div className="w-2 h-6 nari-bg rounded-full"></div>
+            {currentTab === 'overview' ? '设计指挥中枢 (Overview)' :
+              currentTab === 'projects' ? '项目管理中心' :
+                currentTab === 'materials' ? '物料资产库 (ERP/BOM)' :
+                  currentTab === 'standards' ? '标准柜型方案库' :
+                    currentTab === 'door-cutout' ? '仪表门开孔调整工具' :
+                      currentTab === 'bom-compare' ? 'BOM 比对分析引擎' :
+                        '智能数字化模块'}
           </h2>
           <div className="flex items-center gap-6">
             <div className="text-right">
@@ -440,15 +439,15 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
         </header>
 
         <div className="flex-1 overflow-y-auto bg-slate-50/50">
-          {currentTab === 'overview' ? renderOverview() : 
-           currentTab === 'projects' ? renderProjects() : 
-           currentTab === 'materials' ? renderMaterials() : 
-           currentTab === 'standards' ? renderStandards() : 
-           currentTab === 'door-cutout' ? renderDeveloping('仪表门参数化开孔', '📐') :
-           currentTab === 'bom-compare' ? renderDeveloping('BOM 差异化比对', '⚖️') :
-           currentTab === 'ai-assistant' ? renderDeveloping('AI 智能辅助路由', '⚡') :
-           currentTab === 'drc' ? renderDeveloping('设计规则自动静态检查', '🛡️') :
-           renderDeveloping('数字化交付生产看板', '📊')}
+          {currentTab === 'overview' ? renderOverview() :
+            currentTab === 'projects' ? renderProjects() :
+              currentTab === 'materials' ? renderMaterials() :
+                currentTab === 'standards' ? renderStandards() :
+                  currentTab === 'door-cutout' ? renderDeveloping('仪表门参数化开孔', '📐') :
+                    currentTab === 'bom-compare' ? renderDeveloping('BOM 差异化比对', '⚖️') :
+                      currentTab === 'ai-assistant' ? renderDeveloping('AI 智能辅助路由', '⚡') :
+                        currentTab === 'drc' ? renderDeveloping('设计规则自动静态检查', '🛡️') :
+                          renderDeveloping('数字化交付生产看板', '📊')}
         </div>
       </main>
     </div>

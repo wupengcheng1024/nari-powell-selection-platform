@@ -9,22 +9,22 @@ interface CabinetSelectionProps {
 
 const CabinetSelection: React.FC<CabinetSelectionProps> = ({ onPrev, onNext }) => {
   const standardTemplates: StandardTemplate[] = [
-    { id: 'S001', name: 'KYN28A-12 进线柜方案', code: 'STD-IN-01', type: '进线柜', description: '标准 1250A 进线方案，集成 VSI 断路器', tags: ['1250A', '进线'], imageUrl: 'input_file_0.png' },
-    { id: 'S002', name: 'KYN28A-12 馈线柜方案', code: 'STD-OUT-01', type: '馈线柜', description: '标准 630A 馈线方案，含 CT/接地开关', tags: ['630A', '馈线'], imageUrl: 'input_file_1.png' },
-    { id: 'S003', name: 'KYN28A-12 PT柜方案', code: 'STD-PT-01', type: 'PT柜', description: '高精度电压互感器方案', tags: ['PT', '测量'], imageUrl: 'input_file_2.png' },
-    { id: 'S004', name: 'KYN28A-12 联络柜方案', code: 'STD-TIE-01', type: '联络柜', description: '2500A 母线联络方案', tags: ['2500A', '联络'], imageUrl: 'input_file_3.png' },
-    { id: 'S005', name: 'KYN28A-12 计量柜方案', code: 'STD-MET-01', type: '计量柜', description: '关口表计量专用柜', tags: ['计量', '高精'], imageUrl: 'input_file_0.png' },
+    { id: 'S001', name: 'KYN28A-12 进线柜方案', code: 'STD-IN-01', type: '进线柜', description: '标准 1250A 进线方案，集成 VSI 断路器', tags: ['1250A', '进线'], imageUrl: '../resources/images/diya/STD-GCS-IN.png' },
+    { id: 'S002', name: 'KYN28A-12 馈线柜方案', code: 'STD-OUT-01', type: '馈线柜', description: '标准 630A 馈线方案，含 CT/接地开关', tags: ['630A', '馈线'], imageUrl: '../resources/images/diya/STD-GCS-IN.png' },
+    { id: 'S003', name: 'KYN28A-12 PT柜方案', code: 'STD-PT-01', type: 'PT柜', description: '高精度电压互感器方案', tags: ['PT', '测量'], imageUrl: '../resources/images/diya/STD-GCS-IN.png' },
+    { id: 'S004', name: 'KYN28A-12 联络柜方案', code: 'STD-TIE-01', type: '联络柜', description: '2500A 母线联络方案', tags: ['2500A', '联络'], imageUrl: '../resources/images/diya/STD-GCS-IN.png' },
+    { id: 'S005', name: 'KYN28A-12 计量柜方案', code: 'STD-MET-01', type: '计量柜', description: '关口表计量专用柜', tags: ['计量', '高精'], imageUrl: '../resources/images/diya/STD-GCS-IN.png' },
   ];
 
   const [cabinets, setCabinets] = useState([
-    { id: '#1', type: '进线柜', code: '700-001', matched: 'STD-IN-01', score: 99, img: 'input_file_0.png', function: '主进线', incoming: '电缆底进', outgoing: '母线排', components: 'VSI-12/1250, CT-10kV' },
-    { id: '#2', type: '馈线柜', code: '700-002', matched: 'STD-OUT-01', score: 98, img: 'input_file_1.png', function: '馈电1回路', incoming: '母线排', outgoing: '电缆底出', components: 'VSI-12/630, JDZ-10' },
-    { id: '#3', type: '馈线柜', code: '700-003', matched: 'STD-OUT-01', score: 98, img: 'input_file_1.png', function: '馈电2回路', incoming: '母线排', outgoing: '电缆底出', components: 'VSI-12/630' },
-    { id: '#4', type: '联络柜', code: '700-004', matched: 'STD-TIE-01', score: 95, img: 'input_file_3.png', function: '母线分段', incoming: '左段母线', outgoing: '右段母线', components: 'GN19-12' },
-    { id: '#5', type: 'PT柜', code: '700-005', matched: 'STD-PT-01', score: 92, img: 'input_file_2.png', function: '母线测量', incoming: '母线插接', outgoing: '无', components: 'REL670, JDZ-10' },
-    { id: '#6', type: '馈线柜', code: '700-006', matched: 'STD-OUT-01', score: 98, img: 'input_file_1.png', function: '馈电3回路', incoming: '母线排', outgoing: '电缆底出', components: 'VSI-12/630' },
-    { id: '#7', type: '计量柜', code: '700-007', matched: 'STD-MET-01', score: 88, img: 'input_file_0.png', function: '电能计量', incoming: '母线排', outgoing: '母线排', components: '高精CT' },
-    { id: '#8', type: '进线柜', code: '700-008', matched: 'STD-IN-01', score: 99, img: 'input_file_0.png', function: '二路进线', incoming: '电缆顶进', outgoing: '母线排', components: 'VSI-12/1250' },
+    { id: '#1', type: '进线柜', code: '700-001', matched: 'STD-IN-01', score: 99, img: '../resources/images/yicixian/STD-IN-01-B-01.png', function: '主进线', incoming: '电缆底进', outgoing: '母线排', components: 'VSI-12/1250, CT-10kV' },
+    { id: '#2', type: '馈线柜', code: '700-002', matched: 'STD-OUT-01', score: 98, img: '../resources/images/yicixian/STD-KYN28-OUT-B-01.png', function: '馈电1回路', incoming: '母线排', outgoing: '电缆底出', components: 'VSI-12/630, JDZ-10' },
+    { id: '#3', type: '馈线柜', code: '700-003', matched: 'STD-OUT-01', score: 98, img: '../resources/images/yicixian/STD-KYN28-OUT-B-02.png', function: '馈电2回路', incoming: '母线排', outgoing: '电缆底出', components: 'VSI-12/630' },
+    { id: '#4', type: '联络柜', code: '700-004', matched: 'STD-TIE-01', score: 95, img: '../resources/images/yicixian/STD-TIE-01-B-01.png', function: '母线分段', incoming: '左段母线', outgoing: '右段母线', components: 'GN19-12' },
+    { id: '#5', type: 'PT柜', code: '700-005', matched: 'STD-PT-01', score: 92, img: '../resources/images/yicixian/STD-PT-01-B-01.png', function: '母线测量', incoming: '母线插接', outgoing: '无', components: 'REL670, JDZ-10' },
+    { id: '#6', type: '馈线柜', code: '700-006', matched: 'STD-OUT-01', score: 98, img: '../resources/images/yicixian/STD-KYN28-OUT-B-03.png', function: '馈电3回路', incoming: '母线排', outgoing: '电缆底出', components: 'VSI-12/630' },
+    { id: '#7', type: '计量柜', code: '700-007', matched: 'STD-MET-01', score: 88, img: '../resources/images/yicixian/STD-MET-01-B-01.png', function: '电能计量', incoming: '母线排', outgoing: '母线排', components: '高精CT' },
+    { id: '#8', type: '进线柜', code: '700-008', matched: 'STD-IN-01', score: 99, img: '../resources/images/yicixian/STD-IN-01-B-01.png', function: '二路进线', incoming: '电缆顶进', outgoing: '母线排', components: 'VSI-12/1250' },
   ]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -87,8 +87,8 @@ const CabinetSelection: React.FC<CabinetSelectionProps> = ({ onPrev, onNext }) =
       <div className="flex-1 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 overflow-hidden flex flex-col">
         <div className="flex gap-4 overflow-x-auto pb-6 scrollbar-thin">
           {cabinets.map((c, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               onClick={() => setEditingIndex(index)}
               className={`min-w-[180px] border rounded-xl p-4 transition cursor-pointer relative group/card ${editingIndex === index ? 'border-blue-500 bg-blue-50/30 ring-2 ring-blue-500/20' : 'border-slate-200 hover:border-blue-400 bg-slate-50/50'}`}
             >
@@ -103,7 +103,7 @@ const CabinetSelection: React.FC<CabinetSelectionProps> = ({ onPrev, onNext }) =
               </div>
               <h4 className="text-xs font-bold text-slate-800 truncate">{c.type}</h4>
               <p className="text-[9px] text-slate-400 font-mono mb-2 truncate">{c.matched}</p>
-              <button 
+              <button
                 onClick={(e) => { e.stopPropagation(); openSelectionModal(index); }}
                 className="w-full py-1 text-[10px] nari-blue border border-blue-200 rounded bg-white hover:bg-blue-100 transition"
               >
@@ -111,7 +111,7 @@ const CabinetSelection: React.FC<CabinetSelectionProps> = ({ onPrev, onNext }) =
               </button>
             </div>
           ))}
-          <button 
+          <button
             onClick={openAddModal}
             className="min-w-[180px] border-2 border-dashed border-slate-200 rounded-xl flex flex-col items-center justify-center text-slate-400 gap-2 hover:bg-slate-50 hover:border-blue-300 transition-all cursor-pointer group"
           >
@@ -123,7 +123,7 @@ const CabinetSelection: React.FC<CabinetSelectionProps> = ({ onPrev, onNext }) =
         <div className="mt-6 flex-1 border-t border-slate-100 pt-6 flex gap-6 overflow-hidden">
           <div className="w-[450px] bg-slate-50 rounded-2xl p-6 border border-slate-200 overflow-y-auto shadow-inner">
             <div className="flex items-center justify-between mb-6">
-               <h5 className="font-bold text-base text-slate-800">
+              <h5 className="font-bold text-base text-slate-800">
                 详细工程属性 <span className="text-blue-600 ml-1">{editingIndex !== null && editingIndex >= 0 ? cabinets[editingIndex].id : '全局'}</span>
               </h5>
               <span className="text-[10px] px-2 py-0.5 bg-blue-100 text-blue-700 rounded font-bold">PLM 实时同步</span>
@@ -192,7 +192,7 @@ const CabinetSelection: React.FC<CabinetSelectionProps> = ({ onPrev, onNext }) =
                   <option>3150 A</option>
                 </select>
               </div>
-              
+
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="text-[10px] uppercase text-slate-400 font-extrabold block mb-1.5 tracking-wider">外壳防护等级</label>
@@ -220,41 +220,41 @@ const CabinetSelection: React.FC<CabinetSelectionProps> = ({ onPrev, onNext }) =
           </div>
 
           <div className="flex-1 bg-slate-950 rounded-2xl relative overflow-hidden flex flex-col border border-slate-800 shadow-2xl">
-             <div className="absolute top-4 left-4 z-20 flex items-center gap-4">
-                <div className="px-3 py-1 bg-blue-600/20 backdrop-blur-md border border-blue-500/30 rounded-full flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></div>
-                  <span className="text-[9px] text-blue-400 font-bold uppercase tracking-widest font-mono">CAD Layer: SLD_PARSER_V1</span>
-                </div>
-             </div>
+            <div className="absolute top-4 left-4 z-20 flex items-center gap-4">
+              <div className="px-3 py-1 bg-blue-600/20 backdrop-blur-md border border-blue-500/30 rounded-full flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></div>
+                <span className="text-[9px] text-blue-400 font-bold uppercase tracking-widest font-mono">CAD Layer: SLD_PARSER_V1</span>
+              </div>
+            </div>
 
-             <div className="flex-1 flex items-center justify-center p-12 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-slate-900 to-black">
-                <div className="w-full h-1 bg-blue-500/20 relative">
-                   <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-500/40 via-blue-400/20 to-transparent"></div>
-                   {Array.from({length: 8}).map((_, i) => (
-                     <div key={i} className={`absolute top-[-10px] transition-all duration-700 ${editingIndex === i ? 'scale-125' : 'opacity-40'}`} style={{left: `${(i/8)*100}%`}}>
-                        <div className={`w-6 h-1 rounded-full ${editingIndex === i ? 'bg-blue-400 shadow-[0_0_15px_rgba(59,130,246,1)]' : 'bg-slate-600'}`}></div>
-                        <div className={`w-[1px] h-20 mt-1 mx-auto transition-colors ${editingIndex === i ? 'bg-blue-400/60' : 'bg-slate-700'}`}></div>
-                        <div className={`w-6 h-6 rounded-lg border mt-1 mx-auto flex items-center justify-center text-[8px] font-bold ${editingIndex === i ? 'border-blue-400 bg-blue-900/40 text-blue-300' : 'border-slate-800 bg-slate-900 text-slate-700'}`}>
-                          {i === 0 || i === 7 ? 'IN' : 'FEED'}
-                        </div>
-                     </div>
-                   ))}
-                </div>
-             </div>
-             
-             <div className="p-4 bg-slate-900/80 border-t border-slate-800 flex justify-between items-center backdrop-blur-md">
-                <div className="flex gap-4">
-                  <div className="flex flex-col">
-                    <span className="text-[8px] text-slate-500 uppercase font-bold">相位配置</span>
-                    <span className="text-[10px] text-slate-300 font-mono">A-B-C / L1-L2-L3</span>
+            <div className="flex-1 flex items-center justify-center p-12 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-slate-900 to-black">
+              <div className="w-full h-1 bg-blue-500/20 relative">
+                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-500/40 via-blue-400/20 to-transparent"></div>
+                {Array.from({ length: 8 }).map((_, i) => (
+                  <div key={i} className={`absolute top-[-10px] transition-all duration-700 ${editingIndex === i ? 'scale-125' : 'opacity-40'}`} style={{ left: `${(i / 8) * 100}%` }}>
+                    <div className={`w-6 h-1 rounded-full ${editingIndex === i ? 'bg-blue-400 shadow-[0_0_15px_rgba(59,130,246,1)]' : 'bg-slate-100'}`}></div>
+                    <div className={`w-[1px] h-20 mt-1 mx-auto transition-colors ${editingIndex === i ? 'bg-blue-400/60' : 'bg-slate-100'}`}></div>
+                    <div className={`w-6 h-6 rounded-lg border mt-1 mx-auto flex items-center justify-center text-[8px] font-bold ${editingIndex === i ? 'border-blue-400 bg-blue-900/40 text-blue-300' : 'border-slate-800 bg-slate-900 text-slate-100'}`}>
+                      {i === 0 || i === 7 ? 'IN' : 'FEED'}
+                    </div>
                   </div>
-                  <div className="flex flex-col">
-                    <span className="text-[8px] text-slate-500 uppercase font-bold">母线架构</span>
-                    <span className="text-[10px] text-slate-300 font-mono">TMY-3(100x10)</span>
-                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="p-4 bg-slate-900/80 border-t border-slate-800 flex justify-between items-center backdrop-blur-md">
+              <div className="flex gap-4">
+                <div className="flex flex-col">
+                  <span className="text-[8px] text-slate-500 uppercase font-bold">相位配置</span>
+                  <span className="text-[10px] text-slate-300 font-mono">A-B-C / L1-L2-L3</span>
                 </div>
-                <button className="px-4 py-1.5 bg-blue-600 hover:bg-blue-500 text-white text-[10px] font-bold rounded-lg transition active:scale-95">全景预览模型</button>
-             </div>
+                <div className="flex flex-col">
+                  <span className="text-[8px] text-slate-500 uppercase font-bold">母线架构</span>
+                  <span className="text-[10px] text-slate-300 font-mono">TMY-3(100x10)</span>
+                </div>
+              </div>
+              <button className="px-4 py-1.5 bg-blue-600 hover:bg-blue-500 text-white text-[10px] font-bold rounded-lg transition active:scale-95">全景预览模型</button>
+            </div>
           </div>
         </div>
       </div>
@@ -262,8 +262,8 @@ const CabinetSelection: React.FC<CabinetSelectionProps> = ({ onPrev, onNext }) =
       <div className="flex justify-between items-center">
         <button onClick={onPrev} className="px-6 py-2.5 border border-slate-300 rounded-xl font-bold text-slate-600 bg-white hover:bg-slate-50 transition shadow-sm">返回上一步</button>
         <div className="flex items-center gap-4">
-           <span className="text-[10px] text-slate-400 font-bold italic">系统已自动通过 102 项设计规范检查 ✔</span>
-           <button onClick={onNext} className="px-12 py-2.5 nari-bg text-white rounded-xl font-extrabold shadow-xl shadow-blue-500/30 hover:bg-blue-700 transition active:scale-[0.98]">确认并生成 3D 钣金模型</button>
+          <span className="text-[10px] text-slate-400 font-bold italic">系统已自动通过 102 项设计规范检查 ✔</span>
+          <button onClick={onNext} className="px-12 py-2.5 nari-bg text-white rounded-xl font-extrabold shadow-xl shadow-blue-500/30 hover:bg-blue-700 transition active:scale-[0.98]">确认并生成 3D 钣金模型</button>
         </div>
       </div>
 
@@ -281,11 +281,11 @@ const CabinetSelection: React.FC<CabinetSelectionProps> = ({ onPrev, onNext }) =
                 <svg className="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
               </button>
             </div>
-            
+
             <div className="flex-1 overflow-y-auto p-8 bg-slate-50 grid grid-cols-3 gap-8 scrollbar-hide">
               {standardTemplates.map((template) => (
-                <div 
-                  key={template.id} 
+                <div
+                  key={template.id}
                   className="bg-white border border-slate-200 rounded-3xl overflow-hidden hover:border-blue-500 hover:shadow-2xl transition-all group flex flex-col cursor-pointer"
                   onClick={() => selectTemplate(template)}
                 >
@@ -295,8 +295,8 @@ const CabinetSelection: React.FC<CabinetSelectionProps> = ({ onPrev, onNext }) =
                   </div>
                   <div className="p-6 flex flex-col flex-1">
                     <div className="flex justify-between items-start mb-2">
-                       <span className="text-[9px] px-2 py-0.5 bg-blue-50 text-blue-600 rounded-full font-bold border border-blue-100">{template.code}</span>
-                       <span className="text-[9px] text-slate-400 font-bold uppercase">{template.type}</span>
+                      <span className="text-[9px] px-2 py-0.5 bg-blue-50 text-blue-600 rounded-full font-bold border border-blue-100">{template.code}</span>
+                      <span className="text-[9px] text-slate-400 font-bold uppercase">{template.type}</span>
                     </div>
                     <h5 className="font-bold text-slate-800 text-base mb-2 group-hover:text-blue-600 transition">{template.name}</h5>
                     <p className="text-xs text-slate-500 line-clamp-2 mb-6 leading-relaxed">{template.description}</p>
