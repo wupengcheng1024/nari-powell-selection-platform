@@ -347,8 +347,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
     <div className="min-h-screen flex bg-slate-50">
       <aside className="w-64 bg-slate-900 text-white flex flex-col fixed h-full z-20 shadow-2xl">
         <div className="p-6 border-b border-slate-800 flex items-center gap-3">
-          <div className="w-8 h-8 nari-bg rounded flex items-center justify-center font-bold text-lg shadow-lg">N</div>
-          <span className="font-semibold tracking-tight">NARI POWELL</span>
+          <img src="/images/login/logo.png" alt="NARI POWELL Logo" className="h-8" />
         </div>
 
         <div className="flex-1 overflow-y-auto py-4 px-3 space-y-6 scrollbar-hide">
