@@ -7,7 +7,7 @@ import ProjectDetail from './pages/ProjectDetail';
 // --- 辅助组件 ---
 
 // 1. 路由守卫：检查登录状态
-const ProtectedRoute = ({ isAuth, children }: { isAuth: boolean; children: JSX.Element }) => {
+const ProtectedRoute = ({ isAuth, children }: { isAuth: boolean; children: React.ReactElement }) => {
   if (!isAuth) {
     return <Navigate to="/login" replace />;
   }
