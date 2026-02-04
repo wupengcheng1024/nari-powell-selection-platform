@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { StandardTemplate } from '../types';
 
@@ -9,22 +8,22 @@ interface CabinetSelectionProps {
 
 const CabinetSelection: React.FC<CabinetSelectionProps> = ({ onPrev, onNext }) => {
   const standardTemplates: StandardTemplate[] = [
-    { id: 'S001', name: 'KYN28A-12 进线柜方案', code: 'STD-IN-01', type: '进线柜', description: '标准 1250A 进线方案，集成 VSI 断路器', tags: ['1250A', '进线'], imageUrl: '/images/diya/STD-GCS-IN.png' },
-    { id: 'S002', name: 'KYN28A-12 馈线柜方案', code: 'STD-OUT-01', type: '馈线柜', description: '标准 630A 馈线方案，含 CT/接地开关', tags: ['630A', '馈线'], imageUrl: '/images/diya/STD-GCS-IN.png' },
-    { id: 'S003', name: 'KYN28A-12 PT柜方案', code: 'STD-PT-01', type: 'PT柜', description: '高精度电压互感器方案', tags: ['PT', '测量'], imageUrl: '/images/diya/STD-GCS-IN.png' },
-    { id: 'S004', name: 'KYN28A-12 联络柜方案', code: 'STD-TIE-01', type: '联络柜', description: '2500A 母线联络方案', tags: ['2500A', '联络'], imageUrl: '/images/diya/STD-GCS-IN.png' },
-    { id: 'S005', name: 'KYN28A-12 计量柜方案', code: 'STD-MET-01', type: '计量柜', description: '关口表计量专用柜', tags: ['计量', '高精'], imageUrl: '/images/diya/STD-GCS-IN.png' },
+    { id: 'S001', name: 'KYN28A-12 进线柜方案', code: 'STD-IN-01', type: '进线柜', description: '标准 1250A 进线方案，集成 VSI 断路器', tags: ['1250A', '进线'], imageUrl: 'images/diya/STD-GCS-IN.png' },
+    { id: 'S002', name: 'KYN28A-12 馈线柜方案', code: 'STD-OUT-01', type: '馈线柜', description: '标准 630A 馈线方案，含 CT/接地开关', tags: ['630A', '馈线'], imageUrl: 'images/diya/STD-GCS-IN.png' },
+    { id: 'S003', name: 'KYN28A-12 PT柜方案', code: 'STD-PT-01', type: 'PT柜', description: '高精度电压互感器方案', tags: ['PT', '测量'], imageUrl: 'images/diya/STD-GCS-IN.png' },
+    { id: 'S004', name: 'KYN28A-12 联络柜方案', code: 'STD-TIE-01', type: '联络柜', description: '2500A 母线联络方案', tags: ['2500A', '联络'], imageUrl: 'images/diya/STD-GCS-IN.png' },
+    { id: 'S005', name: 'KYN28A-12 计量柜方案', code: 'STD-MET-01', type: '计量柜', description: '关口表计量专用柜', tags: ['计量', '高精'], imageUrl: 'images/diya/STD-GCS-IN.png' },
   ];
 
   const [cabinets, setCabinets] = useState([
-    { id: '#1', type: '进线柜', code: '700-001', matched: 'STD-IN-01', score: 99, img: '/images/yicixian/STD-IN-01-B-01.png', function: '主进线', incoming: '电缆底进', outgoing: '母线排', components: 'VSI-12/1250, CT-10kV' },
-    { id: '#2', type: '馈线柜', code: '700-002', matched: 'STD-OUT-01', score: 98, img: '/images/yicixian/STD-KYN28-OUT-B-01.png', function: '馈电1回路', incoming: '母线排', outgoing: '电缆底出', components: 'VSI-12/630, JDZ-10' },
-    { id: '#3', type: '馈线柜', code: '700-003', matched: 'STD-OUT-01', score: 98, img: '/images/yicixian/STD-KYN28-OUT-B-02.png', function: '馈电2回路', incoming: '母线排', outgoing: '电缆底出', components: 'VSI-12/630' },
-    { id: '#4', type: '联络柜', code: '700-004', matched: 'STD-TIE-01', score: 95, img: '/images/yicixian/STD-TIE-01-B-01.png', function: '母线分段', incoming: '左段母线', outgoing: '右段母线', components: 'GN19-12' },
-    { id: '#5', type: 'PT柜', code: '700-005', matched: 'STD-PT-01', score: 92, img: '/images/yicixian/STD-PT-01-B-01.png', function: '母线测量', incoming: '母线插接', outgoing: '无', components: 'REL670, JDZ-10' },
-    { id: '#6', type: '馈线柜', code: '700-006', matched: 'STD-OUT-01', score: 98, img: '/images/yicixian/STD-KYN28-OUT-B-03.png', function: '馈电3回路', incoming: '母线排', outgoing: '电缆底出', components: 'VSI-12/630' },
-    { id: '#7', type: '计量柜', code: '700-007', matched: 'STD-MET-01', score: 88, img: '/images/yicixian/STD-MET-01-B-01.png', function: '电能计量', incoming: '母线排', outgoing: '母线排', components: '高精CT' },
-    { id: '#8', type: '进线柜', code: '700-008', matched: 'STD-IN-01', score: 99, img: '/images/yicixian/STD-IN-01-B-01.png', function: '二路进线', incoming: '电缆顶进', outgoing: '母线排', components: 'VSI-12/1250' },
+    { id: '#1', type: '进线柜', code: '700-001', matched: 'STD-IN-01', score: 99, img: 'images/yicixian/STD-IN-01-B-01.png', function: '主进线', incoming: '电缆底进', outgoing: '母线排', components: 'VSI-12/1250, CT-10kV' },
+    { id: '#2', type: '馈线柜', code: '700-002', matched: 'STD-OUT-01', score: 98, img: 'images/yicixian/STD-KYN28-OUT-B-01.png', function: '馈电1回路', incoming: '母线排', outgoing: '电缆底出', components: 'VSI-12/630, JDZ-10' },
+    { id: '#3', type: '馈线柜', code: '700-003', matched: 'STD-OUT-01', score: 98, img: 'images/yicixian/STD-KYN28-OUT-B-02.png', function: '馈电2回路', incoming: '母线排', outgoing: '电缆底出', components: 'VSI-12/630' },
+    { id: '#4', type: '联络柜', code: '700-004', matched: 'STD-TIE-01', score: 95, img: 'images/yicixian/STD-TIE-01-B-01.png', function: '母线分段', incoming: '左段母线', outgoing: '右段母线', components: 'GN19-12' },
+    { id: '#5', type: 'PT柜', code: '700-005', matched: 'STD-PT-01', score: 92, img: 'images/yicixian/STD-PT-01-B-01.png', function: '母线测量', incoming: '母线插接', outgoing: '无', components: 'REL670, JDZ-10' },
+    { id: '#6', type: '馈线柜', code: '700-006', matched: 'STD-OUT-01', score: 98, img: 'images/yicixian/STD-KYN28-OUT-B-03.png', function: '馈电3回路', incoming: '母线排', outgoing: '电缆底出', components: 'VSI-12/630' },
+    { id: '#7', type: '计量柜', code: '700-007', matched: 'STD-MET-01', score: 88, img: 'images/yicixian/STD-MET-01-B-01.png', function: '电能计量', incoming: '母线排', outgoing: '母线排', components: '高精CT' },
+    { id: '#8', type: '进线柜', code: '700-008', matched: 'STD-IN-01', score: 99, img: 'images/yicixian/STD-IN-01-B-01.png', function: '二路进线', incoming: '电缆顶进', outgoing: '母线排', components: 'VSI-12/1250' },
   ]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -98,7 +97,7 @@ const CabinetSelection: React.FC<CabinetSelectionProps> = ({ onPrev, onNext }) =
                   {c.score}%
                 </span>
               </div>
-              <div className="aspect-[3/4] bg-slate-900 rounded-lg border border-slate-100 mb-3 flex items-center justify-center overflow-hidden">
+              <div className="aspect-[3/4] bg-white rounded-lg border border-slate-200 mb-3 flex items-center justify-center overflow-hidden">
                 <img src={c.img} alt="Cabinet Preview" className="w-full h-full object-contain p-2 group-hover/card:scale-110 transition duration-500" />
               </div>
               <h4 className="text-xs font-bold text-slate-800 truncate">{c.type}</h4>
@@ -289,7 +288,7 @@ const CabinetSelection: React.FC<CabinetSelectionProps> = ({ onPrev, onNext }) =
                   className="bg-white border border-slate-200 rounded-3xl overflow-hidden hover:border-blue-500 hover:shadow-2xl transition-all group flex flex-col cursor-pointer"
                   onClick={() => selectTemplate(template)}
                 >
-                  <div className="h-52 bg-slate-900 p-6 flex items-center justify-center border-b border-slate-800 relative">
+                  <div className="h-52 bg-white p-6 flex items-center justify-center border-b border-slate-100 relative">
                     <img src={template.imageUrl} alt={template.name} className="max-h-full max-w-full object-contain drop-shadow-2xl group-hover:scale-110 transition duration-500" />
                     <div className="absolute top-4 right-4 px-2 py-0.5 bg-blue-600 text-white text-[8px] font-bold rounded uppercase tracking-widest">Digital Twin</div>
                   </div>

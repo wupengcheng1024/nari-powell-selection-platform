@@ -5,6 +5,7 @@ import MissionReception from '../components/MissionReception';
 import CabinetSelection from '../components/CabinetSelection';
 import ParametricDesign from '../components/ParametricDesign';
 import BusbarDesign from '../components/BusbarDesign';
+import MainBusbarAssembly from '../components/MainBusbarAssembly';
 import OutputExport from '../components/OutputExport';
 
 interface ProjectDetailProps {
@@ -21,6 +22,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ projectId, onBack }) => {
     { title: '柜型匹配', desc: '一次图选型' },
     { title: '参数设计', desc: '钣金自动化' },
     { title: '铜排设计', desc: '交互式建模' },
+    { title: '主母排拼柜', desc: '总装拼接' },
     { title: '成果输出', desc: 'BOM与图纸' }
   ];
 
@@ -33,9 +35,11 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ projectId, onBack }) => {
       case WorkflowStep.PARAMETRIC_DESIGN:
         return <ParametricDesign onPrev={() => setCurrentStep(WorkflowStep.CABINET_SELECTION)} onNext={() => setCurrentStep(WorkflowStep.BUSBAR_DESIGN)} />;
       case WorkflowStep.BUSBAR_DESIGN:
-        return <BusbarDesign onPrev={() => setCurrentStep(WorkflowStep.PARAMETRIC_DESIGN)} onNext={() => setCurrentStep(WorkflowStep.OUTPUT_EXPORT)} />;
+        return <BusbarDesign onPrev={() => setCurrentStep(WorkflowStep.PARAMETRIC_DESIGN)} onNext={() => setCurrentStep(WorkflowStep.MAIN_BUSBAR_ASSEMBLY)} />;
+      case WorkflowStep.MAIN_BUSBAR_ASSEMBLY:
+        return <MainBusbarAssembly onPrev={() => setCurrentStep(WorkflowStep.BUSBAR_DESIGN)} onNext={() => setCurrentStep(WorkflowStep.OUTPUT_EXPORT)} />;
       case WorkflowStep.OUTPUT_EXPORT:
-        return <OutputExport onPrev={() => setCurrentStep(WorkflowStep.BUSBAR_DESIGN)} />;
+        return <OutputExport onPrev={() => setCurrentStep(WorkflowStep.MAIN_BUSBAR_ASSEMBLY)} />;
       default:
         return <div>Step {currentStep} under development</div>;
     }
@@ -57,7 +61,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ projectId, onBack }) => {
         <div className="flex items-center gap-4">
           <div className="text-xs text-right mr-4 border-r pr-4 border-slate-200">
             <span className="text-slate-400 block">当前环节</span>
-            <span className="nari-blue font-bold">{steps[currentStep].title}</span>
+            <span className="nari-blue font-bold">{steps[currentStep] ? steps[currentStep].title : '未知'}</span>
           </div>
           <button className="px-4 py-2 border border-slate-200 text-sm rounded-lg hover:bg-slate-50">保存草稿</button>
           <button className="px-4 py-2 nari-bg text-white text-sm rounded-lg hover:shadow-lg transition">提交审核</button>
@@ -66,7 +70,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ projectId, onBack }) => {
 
       {/* Workflow Stepper */}
       <div className="bg-white border-b border-slate-200 px-8 py-4">
-        <div className="max-w-6xl mx-auto flex items-center justify-between">
+        <div className="max-w-[96%] mx-auto flex items-center justify-between">
           {steps.map((s, idx) => (
             <React.Fragment key={idx}>
               <div 
@@ -90,7 +94,7 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ projectId, onBack }) => {
 
       {/* Step Content */}
       <div className="flex-1 overflow-auto p-8">
-        <div className="max-w-7xl mx-auto h-full">
+        <div className="max-w-[96%] mx-auto h-full">
           {renderStepContent()}
         </div>
       </div>

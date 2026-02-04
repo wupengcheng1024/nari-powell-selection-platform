@@ -35,6 +35,7 @@ export interface Material {
   price: string;
   unit: string;
   thumbnail: string;
+  status?: 'approved' | 'pending';
 }
 
 export interface BOMItem {
@@ -55,6 +56,7 @@ export interface StandardTemplate {
   description: string;
   tags: string[];
   imageUrl: string;
+  status?: 'approved' | 'pending';
 }
 
 export enum WorkflowStep {
@@ -63,5 +65,6 @@ export enum WorkflowStep {
   CABINET_SELECTION = 2,
   PARAMETRIC_DESIGN = 3,
   BUSBAR_DESIGN = 4,
-  OUTPUT_EXPORT = 5
+  MAIN_BUSBAR_ASSEMBLY = 5,
+  OUTPUT_EXPORT = 6
 }

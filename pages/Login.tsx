@@ -29,7 +29,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
         <div
           className="absolute inset-0 bg-cover bg-center transition-all duration-1000 transform hover:scale-105"
           style={{
-            backgroundImage: "url('/images/login/backgroud.jpg')", // 使用指定的图片路径
+            backgroundImage: "url('images/login/backgroud.jpg')", // 使用指定的图片路径
           }}
         />
         {/* 2. 背景虚化与遮罩：叠加一层模糊和半透明黑底，提升文字可读性 */}
