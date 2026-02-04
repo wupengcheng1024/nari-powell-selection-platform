@@ -8,11 +8,11 @@ interface CabinetSelectionProps {
 
 const CabinetSelection: React.FC<CabinetSelectionProps> = ({ onPrev, onNext }) => {
   const standardTemplates: StandardTemplate[] = [
-    { id: 'S001', name: 'KYN28A-12 进线柜方案', code: 'STD-IN-01', type: '进线柜', description: '标准 1250A 进线方案，集成 VSI 断路器', tags: ['1250A', '进线'], imageUrl: 'images/diya/STD-GCS-IN.png' },
-    { id: 'S002', name: 'KYN28A-12 馈线柜方案', code: 'STD-OUT-01', type: '馈线柜', description: '标准 630A 馈线方案，含 CT/接地开关', tags: ['630A', '馈线'], imageUrl: 'images/diya/STD-GCS-IN.png' },
-    { id: 'S003', name: 'KYN28A-12 PT柜方案', code: 'STD-PT-01', type: 'PT柜', description: '高精度电压互感器方案', tags: ['PT', '测量'], imageUrl: 'images/diya/STD-GCS-IN.png' },
-    { id: 'S004', name: 'KYN28A-12 联络柜方案', code: 'STD-TIE-01', type: '联络柜', description: '2500A 母线联络方案', tags: ['2500A', '联络'], imageUrl: 'images/diya/STD-GCS-IN.png' },
-    { id: 'S005', name: 'KYN28A-12 计量柜方案', code: 'STD-MET-01', type: '计量柜', description: '关口表计量专用柜', tags: ['计量', '高精'], imageUrl: 'images/diya/STD-GCS-IN.png' },
+    { id: 'S001', name: 'KYN28A-12 进线柜方案', code: 'STD-IN-01', type: '进线柜', description: '标准 1250A 进线方案，集成 VSI 断路器', tags: ['1250A', '进线'], imageUrl: 'images/zhongya/STD-KYN28-IN.png' },
+    { id: 'S002', name: 'KYN28A-12 馈线柜方案', code: 'STD-OUT-01', type: '馈线柜', description: '标准 630A 馈线方案，含 CT/接地开关', tags: ['630A', '馈线'], imageUrl: 'images/zhongya/STD-KYN28-IN.png' },
+    { id: 'S003', name: 'KYN28A-12 PT柜方案', code: 'STD-PT-01', type: 'PT柜', description: '高精度电压互感器方案', tags: ['PT', '测量'], imageUrl: 'images/zhongya/STD-KYN28-IN.png' },
+    { id: 'S004', name: 'KYN28A-12 联络柜方案', code: 'STD-TIE-01', type: '联络柜', description: '2500A 母线联络方案', tags: ['2500A', '联络'], imageUrl: 'images/zhongya/STD-KYN28-IN.png' },
+    { id: 'S005', name: 'KYN28A-12 计量柜方案', code: 'STD-MET-01', type: '计量柜', description: '关口表计量专用柜', tags: ['计量', '高精'], imageUrl: 'images/zhongya/STD-KYN28-IN.png' },
   ];
 
   const [cabinets, setCabinets] = useState([
