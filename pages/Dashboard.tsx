@@ -11,10 +11,10 @@ interface DashboardProps {
   onLogout: () => void;
 }
 
-type TabType = 
-  | 'overview' | 'projects' | 'temp-projects' 
-  | 'selection-platform' | 'busbar-master' | 'busbar-conv' 
-  | 'standards' | 'materials' 
+type TabType =
+  | 'overview' | 'projects' | 'temp-projects'
+  | 'selection-platform' | 'busbar-master' | 'busbar-conv'
+  | 'standards' | 'materials'
   | 'ai-assistant' | 'bom-compare' | 'drc';
 
 type StandardCategory = '中压柜' | '低压柜' | '箱变';
@@ -63,7 +63,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
   // Modal State for Standards
   const [isStdModalOpen, setIsStdModalOpen] = useState(false);
   const [editingStandard, setEditingStandard] = useState<StandardTemplate | null>(null);
-  
+
   // Modal State for Materials
   const [isMatModalOpen, setIsMatModalOpen] = useState(false);
   const [editingMaterial, setEditingMaterial] = useState<Material | null>(null);
@@ -80,7 +80,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
   };
 
   const handleDeleteStandard = (id: string) => {
-    if(window.confirm('确定要删除该标准方案吗？此操作不可恢复。')) {
+    if (window.confirm('确定要删除该标准方案吗？此操作不可恢复。')) {
       setStandardsList(prev => prev.filter(s => s.id !== id));
     }
   };
@@ -97,8 +97,8 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
 
     if (editingStandard) {
       // Update
-      setStandardsList(prev => prev.map(s => s.id === editingStandard.id ? { 
-        ...s, 
+      setStandardsList(prev => prev.map(s => s.id === editingStandard.id ? {
+        ...s,
         ...formData,
         tags: tagsArray // Explicitly overwrite tags to ensure it's an array
       } : s));
@@ -131,7 +131,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
   };
 
   const handleDeleteMaterial = (id: string) => {
-    if(window.confirm('确定要删除该元器件模型吗？')) {
+    if (window.confirm('确定要删除该元器件模型吗？')) {
       setMaterialsList(prev => prev.filter(m => m.id !== id));
     }
   };
@@ -145,8 +145,8 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
 
     if (editingMaterial) {
       // Update
-      setMaterialsList(prev => prev.map(m => m.id === editingMaterial.id ? { 
-        ...m, 
+      setMaterialsList(prev => prev.map(m => m.id === editingMaterial.id ? {
+        ...m,
         ...formData,
         stock: stockVal // Ensure stock is a number
       } : m));
@@ -215,7 +215,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
     const newProject: Project = {
       id: Date.now().toString(),
       name: tempName,
-      wbs: `TEMP-${new Date().getFullYear()}${String(new Date().getMonth()+1).padStart(2, '0')}-${String(Math.floor(Math.random() * 1000)).padStart(3,'0')}`,
+      wbs: `TEMP-${new Date().getFullYear()}${String(new Date().getMonth() + 1).padStart(2, '0')}-${String(Math.floor(Math.random() * 1000)).padStart(3, '0')}`,
       status: ProjectStatus.PLANNING,
       progress: 0,
       customer: tempCustomer,
@@ -223,12 +223,12 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
     };
 
     setProjects([newProject, ...projects]);
-    
+
     // Reset form
     setTempName('');
     setTempCustomer('');
     setTempType('配电改造');
-    
+
     // Switch to projects tab
     setCurrentTab('projects');
   };
@@ -251,11 +251,10 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
           {warnings.map(warning => (
             <div key={warning.id} className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition group">
               <div className="flex justify-between items-start mb-2">
-                <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase ${
-                  warning.level === 'critical' ? 'bg-red-50 text-red-600 border border-red-100' :
-                  warning.level === 'warning' ? 'bg-amber-50 text-amber-600 border border-amber-100' :
-                  'bg-blue-50 text-blue-600 border border-blue-100'
-                }`}>{warning.level}</span>
+                <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase ${warning.level === 'critical' ? 'bg-red-50 text-red-600 border border-red-100' :
+                    warning.level === 'warning' ? 'bg-amber-50 text-amber-600 border border-amber-100' :
+                      'bg-blue-50 text-blue-600 border border-blue-100'
+                  }`}>{warning.level}</span>
                 <span className="text-[10px] text-slate-400 font-mono">{warning.time}</span>
               </div>
               <h4 className="text-sm font-bold text-slate-800 mb-1">{warning.title}</h4>
@@ -338,8 +337,8 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-2">项目名称 (Project Name)</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500/20 transition text-sm font-bold text-slate-700"
                   placeholder="请输入项目全称..."
                   value={tempName}
@@ -349,8 +348,8 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
 
               <div>
                 <label className="block text-sm font-bold text-slate-700 mb-2">客户名称 (Customer)</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500/20 transition text-sm font-bold text-slate-700"
                   placeholder="请输入客户方名称..."
                   value={tempCustomer}
@@ -361,7 +360,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-bold text-slate-700 mb-2">项目类型 (Type)</label>
-                  <select 
+                  <select
                     className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500/20 transition text-sm font-bold text-slate-700"
                     value={tempType}
                     onChange={(e) => setTempType(e.target.value)}
@@ -374,7 +373,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
                 </div>
                 <div>
                   <label className="block text-sm font-bold text-slate-700 mb-2">优先级 (Priority)</label>
-                  <select 
+                  <select
                     className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500/20 transition text-sm font-bold text-slate-700"
                     value={tempPriority}
                     onChange={(e) => setTempPriority(e.target.value)}
@@ -387,7 +386,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
               </div>
 
               <div className="pt-6">
-                <button 
+                <button
                   onClick={handleCreateTempProject}
                   className="w-full py-3.5 nari-bg text-white rounded-xl font-bold shadow-lg shadow-blue-500/20 hover:bg-blue-700 transition active:scale-[0.98] flex items-center justify-center gap-2"
                 >
@@ -407,37 +406,37 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
           <div className="bg-gradient-to-br from-slate-900 to-slate-800 p-8 rounded-3xl shadow-2xl text-white relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 rounded-full blur-[80px] -mr-16 -mt-16"></div>
             <div className="relative z-10">
-               <div className="flex items-center gap-2 mb-6">
-                 <span className="px-2 py-0.5 border border-white/20 rounded-lg text-[10px] uppercase font-mono tracking-widest text-blue-300">Preview</span>
-                 <span className="text-[10px] text-white/40">Generated by NARI AI</span>
-               </div>
-               
-               <div className="space-y-1 mb-8">
-                 <h1 className="text-2xl font-bold">{tempName || '未命名项目...'}</h1>
-                 <p className="text-sm text-slate-400">{tempCustomer || '客户名称...'}</p>
-               </div>
+              <div className="flex items-center gap-2 mb-6">
+                <span className="px-2 py-0.5 border border-white/20 rounded-lg text-[10px] uppercase font-mono tracking-widest text-blue-300">Preview</span>
+                <span className="text-[10px] text-white/40">Generated by NARI AI</span>
+              </div>
 
-               <div className="space-y-4 font-mono text-xs">
-                 <div className="flex justify-between border-b border-white/10 pb-2">
-                   <span className="text-slate-500">WBS (Auto)</span>
-                   <span className="text-blue-400">TEMP-{new Date().getFullYear()}...</span>
-                 </div>
-                 <div className="flex justify-between border-b border-white/10 pb-2">
-                   <span className="text-slate-500">Status</span>
-                   <span className="text-amber-400">PLANNING</span>
-                 </div>
-                 <div className="flex justify-between border-b border-white/10 pb-2">
-                   <span className="text-slate-500">Created At</span>
-                   <span className="text-slate-300">Just Now</span>
-                 </div>
-               </div>
+              <div className="space-y-1 mb-8">
+                <h1 className="text-2xl font-bold">{tempName || '未命名项目...'}</h1>
+                <p className="text-sm text-slate-400">{tempCustomer || '客户名称...'}</p>
+              </div>
 
-               <div className="mt-8 flex gap-2">
-                 <div className="flex-1 h-1.5 bg-slate-700 rounded-full overflow-hidden">
-                   <div className="w-0 h-full bg-blue-500"></div>
-                 </div>
-                 <span className="text-[10px] font-bold text-slate-500">0%</span>
-               </div>
+              <div className="space-y-4 font-mono text-xs">
+                <div className="flex justify-between border-b border-white/10 pb-2">
+                  <span className="text-slate-500">WBS (Auto)</span>
+                  <span className="text-blue-400">TEMP-{new Date().getFullYear()}...</span>
+                </div>
+                <div className="flex justify-between border-b border-white/10 pb-2">
+                  <span className="text-slate-500">Status</span>
+                  <span className="text-amber-400">PLANNING</span>
+                </div>
+                <div className="flex justify-between border-b border-white/10 pb-2">
+                  <span className="text-slate-500">Created At</span>
+                  <span className="text-slate-300">Just Now</span>
+                </div>
+              </div>
+
+              <div className="mt-8 flex gap-2">
+                <div className="flex-1 h-1.5 bg-slate-700 rounded-full overflow-hidden">
+                  <div className="w-0 h-full bg-blue-500"></div>
+                </div>
+                <span className="text-[10px] font-bold text-slate-500">0%</span>
+              </div>
             </div>
           </div>
 
@@ -476,7 +475,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
               </button>
             ))}
           </div>
-          <button 
+          <button
             onClick={handleAddStandard}
             className="px-4 py-2 nari-bg text-white rounded-xl text-sm font-bold shadow-lg shadow-blue-500/20 hover:bg-blue-700 transition flex items-center gap-2"
           >
@@ -493,7 +492,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
               <img src={s.imageUrl} alt={s.name} className="max-h-full max-w-full object-contain drop-shadow-[0_0_40px_rgba(59,130,246,0.3)] group-hover:scale-110 transition duration-500" />
               <div className="absolute top-4 right-4 px-2 py-0.5 bg-blue-600 text-white text-[9px] font-bold rounded-lg shadow-lg">3D ASSET</div>
               {s.status === 'pending' && (
-                 <div className="absolute top-4 left-4 px-2 py-0.5 bg-amber-500 text-white text-[9px] font-bold rounded-lg shadow-lg animate-pulse">待审批</div>
+                <div className="absolute top-4 left-4 px-2 py-0.5 bg-amber-500 text-white text-[9px] font-bold rounded-lg shadow-lg animate-pulse">待审批</div>
               )}
               <div className="absolute bottom-4 left-4 flex gap-1">
                 {s.tags && Array.isArray(s.tags) && s.tags.slice(0, 2).map(t => <span key={t} className="px-2 py-0.5 bg-slate-800/80 backdrop-blur text-white/60 text-[8px] rounded uppercase font-mono">{t}</span>)}
@@ -506,28 +505,28 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
               </div>
               <h4 className="font-bold text-slate-800 text-base mb-2 group-hover:text-blue-600 transition">{s.name}</h4>
               <p className="text-xs text-slate-500 leading-relaxed mb-6 flex-1">{s.description}</p>
-              
+
               <div className="flex gap-2 mt-auto border-t border-slate-100 pt-4">
-                 {s.status === 'pending' ? (
-                   <button 
+                {s.status === 'pending' ? (
+                  <button
                     onClick={() => handleApproveStandard(s.id)}
                     className="flex-1 py-1.5 bg-amber-50 text-amber-600 text-[10px] font-bold rounded-lg hover:bg-amber-100 transition flex items-center justify-center gap-1"
-                   >
-                     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
-                     审批通过
-                   </button>
-                 ) : (
-                    <span className="flex-1 py-1.5 bg-green-50 text-green-600 text-[10px] font-bold rounded-lg flex items-center justify-center gap-1 cursor-default">
-                       <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                       已发布
-                    </span>
-                 )}
-                 <button onClick={() => handleEditStandard(s)} className="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition" title="编辑">
-                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
-                 </button>
-                 <button onClick={() => handleDeleteStandard(s.id)} className="p-1.5 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition" title="删除">
-                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
-                 </button>
+                  >
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
+                    审批通过
+                  </button>
+                ) : (
+                  <span className="flex-1 py-1.5 bg-green-50 text-green-600 text-[10px] font-bold rounded-lg flex items-center justify-center gap-1 cursor-default">
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    已发布
+                  </span>
+                )}
+                <button onClick={() => handleEditStandard(s)} className="p-1.5 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition" title="编辑">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
+                </button>
+                <button onClick={() => handleDeleteStandard(s.id)} className="p-1.5 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-lg transition" title="删除">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+                </button>
               </div>
             </div>
           </div>
@@ -542,44 +541,44 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-slate-900/70 backdrop-blur-sm animate-in fade-in" onClick={() => setIsStdModalOpen(false)}></div>
           <div className="bg-white w-full max-w-lg rounded-2xl shadow-xl relative z-10 animate-in zoom-in-95 overflow-hidden">
-             <div className="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50">
-                <h3 className="font-bold text-slate-800">{editingStandard ? '编辑标准方案' : '新增标准方案'}</h3>
-                <button onClick={() => setIsStdModalOpen(false)} className="text-slate-400 hover:text-slate-600"><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg></button>
-             </div>
-             <form onSubmit={(e) => {
-                e.preventDefault();
-                const formData = new FormData(e.currentTarget);
-                saveStandard(Object.fromEntries(formData));
-             }} className="p-6 space-y-4">
+            <div className="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+              <h3 className="font-bold text-slate-800">{editingStandard ? '编辑标准方案' : '新增标准方案'}</h3>
+              <button onClick={() => setIsStdModalOpen(false)} className="text-slate-400 hover:text-slate-600"><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg></button>
+            </div>
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              const formData = new FormData(e.currentTarget);
+              saveStandard(Object.fromEntries(formData));
+            }} className="p-6 space-y-4">
+              <div>
+                <label className="block text-xs font-bold text-slate-500 mb-1">方案名称</label>
+                <input name="name" defaultValue={editingStandard?.name} required className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500" />
+              </div>
+              <div className="grid grid-cols-2 gap-4">
                 <div>
-                   <label className="block text-xs font-bold text-slate-500 mb-1">方案名称</label>
-                   <input name="name" defaultValue={editingStandard?.name} required className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500" />
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                   <div>
-                      <label className="block text-xs font-bold text-slate-500 mb-1">方案代码 (Code)</label>
-                      <input name="code" defaultValue={editingStandard?.code} required className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500" />
-                   </div>
-                   <div>
-                      <label className="block text-xs font-bold text-slate-500 mb-1">类型</label>
-                      <select name="type" defaultValue={editingStandard?.type || activeStandardCategory} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500">
-                         {(['中压柜', '低压柜', '箱变'] as StandardCategory[]).map(c => <option key={c} value={c}>{c}</option>)}
-                      </select>
-                   </div>
+                  <label className="block text-xs font-bold text-slate-500 mb-1">方案代码 (Code)</label>
+                  <input name="code" defaultValue={editingStandard?.code} required className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500" />
                 </div>
                 <div>
-                   <label className="block text-xs font-bold text-slate-500 mb-1">描述</label>
-                   <textarea name="description" defaultValue={editingStandard?.description} rows={3} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500"></textarea>
+                  <label className="block text-xs font-bold text-slate-500 mb-1">类型</label>
+                  <select name="type" defaultValue={editingStandard?.type || activeStandardCategory} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500">
+                    {(['中压柜', '低压柜', '箱变'] as StandardCategory[]).map(c => <option key={c} value={c}>{c}</option>)}
+                  </select>
                 </div>
-                <div>
-                   <label className="block text-xs font-bold text-slate-500 mb-1">标签 (逗号分隔)</label>
-                   <input name="tags" defaultValue={editingStandard?.tags.join(', ')} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500" placeholder="例如: 中压, 1250A" />
-                </div>
-                <div className="pt-4 flex justify-end gap-3">
-                   <button type="button" onClick={() => setIsStdModalOpen(false)} className="px-4 py-2 border border-slate-200 rounded-lg text-sm font-bold text-slate-600 hover:bg-slate-50">取消</button>
-                   <button type="submit" className="px-4 py-2 nari-bg text-white rounded-lg text-sm font-bold hover:bg-blue-700">保存方案</button>
-                </div>
-             </form>
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-slate-500 mb-1">描述</label>
+                <textarea name="description" defaultValue={editingStandard?.description} rows={3} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500"></textarea>
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-slate-500 mb-1">标签 (逗号分隔)</label>
+                <input name="tags" defaultValue={editingStandard?.tags.join(', ')} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500" placeholder="例如: 中压, 1250A" />
+              </div>
+              <div className="pt-4 flex justify-end gap-3">
+                <button type="button" onClick={() => setIsStdModalOpen(false)} className="px-4 py-2 border border-slate-200 rounded-lg text-sm font-bold text-slate-600 hover:bg-slate-50">取消</button>
+                <button type="submit" className="px-4 py-2 nari-bg text-white rounded-lg text-sm font-bold hover:bg-blue-700">保存方案</button>
+              </div>
+            </form>
           </div>
         </div>
       )}
@@ -614,7 +613,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
             导入 ERP 资产
           </button>
-          <button 
+          <button
             onClick={handleAddMaterial}
             className="px-6 py-2 nari-bg text-white rounded-xl text-sm font-bold flex items-center gap-2 hover:bg-blue-700"
           >
@@ -628,7 +627,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
         {filteredMaterials.map(m => (
           <div key={m.id} className="bg-white p-5 rounded-3xl border border-slate-100 shadow-sm flex gap-5 hover:border-blue-300 transition group relative">
             {m.status === 'pending' && (
-               <div className="absolute top-3 right-3 px-2 py-0.5 bg-amber-100 text-amber-600 text-[9px] font-bold rounded">待审核</div>
+              <div className="absolute top-3 right-3 px-2 py-0.5 bg-amber-100 text-amber-600 text-[9px] font-bold rounded">待审核</div>
             )}
             <div className="w-28 h-28 rounded-2xl bg-slate-50 border border-slate-100 overflow-hidden shrink-0">
               <img src={m.thumbnail} className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
@@ -645,86 +644,86 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
                 <span className="px-3 py-1 bg-green-50 text-green-600 rounded-lg font-bold text-[10px]">库存: {m.stock} {m.unit}</span>
               </div>
             </div>
-            
+
             {/* Actions Overlay on Hover */}
             <div className="absolute inset-0 bg-white/90 backdrop-blur rounded-3xl flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity z-10">
-               {m.status === 'pending' && (
-                 <button 
+              {m.status === 'pending' && (
+                <button
                   onClick={() => handleApproveMaterial(m.id)}
                   className="px-4 py-2 bg-amber-500 text-white rounded-xl font-bold text-xs hover:bg-amber-600 transition shadow-lg"
-                 >
-                   审批通过
-                 </button>
-               )}
-               <button onClick={() => handleEditMaterial(m)} className="p-3 bg-blue-50 text-blue-600 rounded-xl hover:bg-blue-100 transition shadow-sm" title="编辑">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
-               </button>
-               <button onClick={() => handleDeleteMaterial(m.id)} className="p-3 bg-red-50 text-red-600 rounded-xl hover:bg-red-100 transition shadow-sm" title="删除">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
-               </button>
+                >
+                  审批通过
+                </button>
+              )}
+              <button onClick={() => handleEditMaterial(m)} className="p-3 bg-blue-50 text-blue-600 rounded-xl hover:bg-blue-100 transition shadow-sm" title="编辑">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
+              </button>
+              <button onClick={() => handleDeleteMaterial(m.id)} className="p-3 bg-red-50 text-red-600 rounded-xl hover:bg-red-100 transition shadow-sm" title="删除">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+              </button>
             </div>
           </div>
         ))}
       </div>
 
-       {/* Material Modal */}
-       {isMatModalOpen && (
+      {/* Material Modal */}
+      {isMatModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-slate-900/70 backdrop-blur-sm animate-in fade-in" onClick={() => setIsMatModalOpen(false)}></div>
           <div className="bg-white w-full max-w-lg rounded-2xl shadow-xl relative z-10 animate-in zoom-in-95 overflow-hidden">
-             <div className="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50">
-                <h3 className="font-bold text-slate-800">{editingMaterial ? '编辑元器件' : '新增元器件'}</h3>
-                <button onClick={() => setIsMatModalOpen(false)} className="text-slate-400 hover:text-slate-600"><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg></button>
-             </div>
-             <form onSubmit={(e) => {
-                e.preventDefault();
-                const formData = new FormData(e.currentTarget);
-                saveMaterial(Object.fromEntries(formData));
-             }} className="p-6 space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                   <div>
-                      <label className="block text-xs font-bold text-slate-500 mb-1">名称</label>
-                      <input name="name" defaultValue={editingMaterial?.name} required className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500" />
-                   </div>
-                   <div>
-                      <label className="block text-xs font-bold text-slate-500 mb-1">型号</label>
-                      <input name="model" defaultValue={editingMaterial?.model} required className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500" />
-                   </div>
+            <div className="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+              <h3 className="font-bold text-slate-800">{editingMaterial ? '编辑元器件' : '新增元器件'}</h3>
+              <button onClick={() => setIsMatModalOpen(false)} className="text-slate-400 hover:text-slate-600"><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg></button>
+            </div>
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              const formData = new FormData(e.currentTarget);
+              saveMaterial(Object.fromEntries(formData));
+            }} className="p-6 space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-slate-500 mb-1">名称</label>
+                  <input name="name" defaultValue={editingMaterial?.name} required className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500" />
                 </div>
-                <div className="grid grid-cols-2 gap-4">
-                   <div>
-                      <label className="block text-xs font-bold text-slate-500 mb-1">品牌</label>
-                      <input name="brand" defaultValue={editingMaterial?.brand} required className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500" />
-                   </div>
-                   <div>
-                      <label className="block text-xs font-bold text-slate-500 mb-1">分类</label>
-                      <select name="category" defaultValue={editingMaterial?.category || '断路器'} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500">
-                         <option>断路器</option>
-                         <option>互感器</option>
-                         <option>继保</option>
-                         <option>辅材</option>
-                      </select>
-                   </div>
+                <div>
+                  <label className="block text-xs font-bold text-slate-500 mb-1">型号</label>
+                  <input name="model" defaultValue={editingMaterial?.model} required className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500" />
                 </div>
-                <div className="grid grid-cols-3 gap-4">
-                   <div>
-                      <label className="block text-xs font-bold text-slate-500 mb-1">价格</label>
-                      <input name="price" defaultValue={editingMaterial?.price} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500" />
-                   </div>
-                   <div>
-                      <label className="block text-xs font-bold text-slate-500 mb-1">库存</label>
-                      <input name="stock" type="number" defaultValue={editingMaterial?.stock} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500" />
-                   </div>
-                   <div>
-                      <label className="block text-xs font-bold text-slate-500 mb-1">单位</label>
-                      <input name="unit" defaultValue={editingMaterial?.unit} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500" />
-                   </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-slate-500 mb-1">品牌</label>
+                  <input name="brand" defaultValue={editingMaterial?.brand} required className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500" />
                 </div>
-                <div className="pt-4 flex justify-end gap-3">
-                   <button type="button" onClick={() => setIsMatModalOpen(false)} className="px-4 py-2 border border-slate-200 rounded-lg text-sm font-bold text-slate-600 hover:bg-slate-50">取消</button>
-                   <button type="submit" className="px-4 py-2 nari-bg text-white rounded-lg text-sm font-bold hover:bg-blue-700">保存元器件</button>
+                <div>
+                  <label className="block text-xs font-bold text-slate-500 mb-1">分类</label>
+                  <select name="category" defaultValue={editingMaterial?.category || '断路器'} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500">
+                    <option>断路器</option>
+                    <option>互感器</option>
+                    <option>继保</option>
+                    <option>辅材</option>
+                  </select>
                 </div>
-             </form>
+              </div>
+              <div className="grid grid-cols-3 gap-4">
+                <div>
+                  <label className="block text-xs font-bold text-slate-500 mb-1">价格</label>
+                  <input name="price" defaultValue={editingMaterial?.price} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500" />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-slate-500 mb-1">库存</label>
+                  <input name="stock" type="number" defaultValue={editingMaterial?.stock} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500" />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-slate-500 mb-1">单位</label>
+                  <input name="unit" defaultValue={editingMaterial?.unit} className="w-full px-3 py-2 border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500" />
+                </div>
+              </div>
+              <div className="pt-4 flex justify-end gap-3">
+                <button type="button" onClick={() => setIsMatModalOpen(false)} className="px-4 py-2 border border-slate-200 rounded-lg text-sm font-bold text-slate-600 hover:bg-slate-50">取消</button>
+                <button type="submit" className="px-4 py-2 nari-bg text-white rounded-lg text-sm font-bold hover:bg-blue-700">保存元器件</button>
+              </div>
+            </form>
           </div>
         </div>
       )}
@@ -753,12 +752,12 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
   const renderOverview = () => (
     <div className="p-8 space-y-10 animate-in fade-in duration-500">
       <div className="flex items-center justify-between pb-6 border-b border-slate-200">
-          <div className="flex items-center gap-3">
-             <div className="w-1.5 h-6 bg-blue-600 rounded-full"></div>
-             <h3 className="text-xl font-bold text-slate-800 tracking-tight">平台指挥总览 (Overview)</h3>
-          </div>
+        <div className="flex items-center gap-3">
+          <div className="w-1.5 h-6 bg-blue-600 rounded-full"></div>
+          <h3 className="text-xl font-bold text-slate-800 tracking-tight">平台指挥总览 (Overview)</h3>
+        </div>
       </div>
-      
+
       <div className="grid grid-cols-4 gap-6">
         <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all group relative overflow-hidden">
           <div className="flex items-center gap-4 mb-4">
@@ -769,10 +768,10 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
           </div>
           <div className="text-4xl font-extrabold text-slate-900">156</div>
           <div className="text-green-500 text-[11px] font-bold mt-4 flex items-center gap-1">
-             <span>↑ 12.5% 本月新增</span>
+            <span>↑ 12.5% 本月新增</span>
           </div>
         </div>
-        
+
         <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all group relative overflow-hidden">
           <div className="flex items-center gap-4 mb-4">
             <div className="p-3 bg-amber-50 rounded-2xl group-hover:bg-amber-500 transition-colors">
@@ -783,24 +782,24 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
           <div className="text-4xl font-extrabold text-slate-900">24</div>
           <div className="text-slate-400 text-[11px] font-bold mt-4">昨日已完成 8 项</div>
         </div>
-        
+
         <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all group relative overflow-hidden">
           <div className="flex items-center gap-4 mb-4">
             <div className="p-3 bg-green-50 rounded-2xl group-hover:bg-green-600 transition-colors">
-               <svg className="w-6 h-6 text-green-600 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <svg className="w-6 h-6 text-green-600 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
             </div>
             <span className="text-slate-500 text-sm font-bold">本月发布 BOM 数</span>
           </div>
           <div className="text-4xl font-extrabold text-slate-900">42</div>
           <div className="text-green-500 text-[11px] font-bold mt-4 flex items-center gap-1">
-             <span>✔ 100% 同步 PLM</span>
+            <span>✔ 100% 同步 PLM</span>
           </div>
         </div>
-        
+
         <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all group relative overflow-hidden">
           <div className="flex items-center gap-4 mb-4">
             <div className="p-3 bg-blue-50 rounded-2xl group-hover:bg-blue-600 transition-colors">
-               <svg className="w-6 h-6 text-blue-600 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+              <svg className="w-6 h-6 text-blue-600 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
             </div>
             <span className="text-slate-500 text-sm font-bold">AI 设计替代率</span>
           </div>
@@ -827,11 +826,10 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
                 <td className="px-8 py-5 font-mono text-xs text-slate-400 font-bold">{p.wbs}</td>
                 <td className="px-8 py-5 font-bold text-slate-700">{p.name}</td>
                 <td className="px-8 py-5 text-center">
-                  <span className={`px-3 py-1.5 rounded-lg text-[10px] font-bold ${
-                      p.status === ProjectStatus.DESIGNING ? 'bg-blue-50 text-blue-600' : 
+                  <span className={`px-3 py-1.5 rounded-lg text-[10px] font-bold ${p.status === ProjectStatus.DESIGNING ? 'bg-blue-50 text-blue-600' :
                       p.status === ProjectStatus.REVIEWING ? 'bg-amber-50 text-amber-600' :
-                      'bg-slate-100 text-slate-500'
-                  }`}>{p.status}</span>
+                        'bg-slate-100 text-slate-500'
+                    }`}>{p.status}</span>
                 </td>
                 <td className="px-8 py-5 text-right">
                   <button onClick={() => onSelectProject(p.id)} className="px-5 py-1.5 rounded-lg border border-blue-200 text-blue-600 text-[11px] font-bold hover:bg-blue-600 hover:text-white transition-all shadow-sm">进入设计</button>
@@ -849,20 +847,20 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
       {/* Sidebar: Updated Framework */}
       <aside className="w-64 bg-[#0f172a] text-white flex flex-col fixed h-full z-20 shadow-2xl font-sans">
         <div className="p-8 pb-4">
-          <img src="images/login/logo.png" alt="NARI Logo" className="h-10 mb-8 object-contain" />
+          <img src="images/login/logo.png" alt="NARI Logo" className="mb-8 object-contain" />
           <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">核心设计中枢</h4>
           <nav className="space-y-2">
             <button onClick={() => setCurrentTab('overview')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold transition-all ${currentTab === 'overview' ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
-               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
-               平台总览
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+              平台总览
             </button>
             <button onClick={() => setCurrentTab('projects')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold transition-all ${currentTab === 'projects' ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
-               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
-               项目管理
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+              项目管理
             </button>
             <button onClick={() => setCurrentTab('temp-projects')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold transition-all ${currentTab === 'temp-projects' ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
-               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-               临时设计项目
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              临时设计项目
             </button>
           </nav>
         </div>
@@ -870,51 +868,51 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
         <div className="px-8 py-4">
           <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">数字化选型工具</h4>
           <nav className="space-y-2">
-             <button onClick={() => setCurrentTab('selection-platform')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold transition-all ${currentTab === 'selection-platform' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
-                选配平台
-             </button>
-             <button onClick={() => setCurrentTab('busbar-master')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold transition-all ${currentTab === 'busbar-master' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                铜排大师软件
-             </button>
-             <button onClick={() => setCurrentTab('busbar-conv')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold transition-all ${currentTab === 'busbar-conv' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
-                电工铜排转换
-             </button>
+            <button onClick={() => setCurrentTab('selection-platform')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold transition-all ${currentTab === 'selection-platform' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+              选配平台
+            </button>
+            <button onClick={() => setCurrentTab('busbar-master')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold transition-all ${currentTab === 'busbar-master' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+              铜排大师软件
+            </button>
+            <button onClick={() => setCurrentTab('busbar-conv')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold transition-all ${currentTab === 'busbar-conv' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+              电工铜排转换
+            </button>
           </nav>
         </div>
 
         <div className="px-8 py-4">
           <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">数据管理平台</h4>
           <nav className="space-y-2">
-             <button onClick={() => setCurrentTab('standards')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold transition-all ${currentTab === 'standards' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" /></svg>
-                标准柜型方案库
-             </button>
-             <button onClick={() => setCurrentTab('materials')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold transition-all ${currentTab === 'materials' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
-                元器件参数化模型库
-             </button>
+            <button onClick={() => setCurrentTab('standards')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold transition-all ${currentTab === 'standards' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" /></svg>
+              标准柜型方案库
+            </button>
+            <button onClick={() => setCurrentTab('materials')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold transition-all ${currentTab === 'materials' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" /></svg>
+              元器件参数化模型库
+            </button>
           </nav>
         </div>
-        
+
         <div className="px-8 py-4">
-           <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">智能平台能力 (Future)</h4>
-           <nav className="space-y-2">
-             <button onClick={() => setCurrentTab('ai-assistant')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold transition-all ${currentTab === 'ai-assistant' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                智能布线
-             </button>
-             <button onClick={() => setCurrentTab('bom-compare')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold transition-all ${currentTab === 'bom-compare' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
-                BOM对比分析
-             </button>
-             <button onClick={() => setCurrentTab('drc')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold transition-all ${currentTab === 'drc' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                设计合规校验
-             </button>
-           </nav>
+          <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">智能平台能力 (Future)</h4>
+          <nav className="space-y-2">
+            <button onClick={() => setCurrentTab('ai-assistant')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold transition-all ${currentTab === 'ai-assistant' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+              智能布线
+            </button>
+            <button onClick={() => setCurrentTab('bom-compare')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold transition-all ${currentTab === 'bom-compare' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+              BOM对比分析
+            </button>
+            <button onClick={() => setCurrentTab('drc')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold transition-all ${currentTab === 'drc' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              设计合规校验
+            </button>
+          </nav>
         </div>
 
         <div className="p-6 mt-auto border-t border-slate-800">
@@ -925,52 +923,52 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
       <main className="flex-1 flex flex-col ml-64 min-h-screen">
         <header className="h-20 bg-white flex items-center justify-between px-10 sticky top-0 z-30 shadow-sm border-b border-slate-100">
           <h2 className="text-xl font-bold text-slate-800 flex items-center gap-3">
-             <div className="w-1.5 h-6 bg-blue-600 rounded-full"></div>
-             {currentTab === 'overview' ? '平台总览 (Overview)' :
+            <div className="w-1.5 h-6 bg-blue-600 rounded-full"></div>
+            {currentTab === 'overview' ? '平台总览 (Overview)' :
               currentTab === 'projects' ? '项目管理' :
-              currentTab === 'temp-projects' ? '临时设计项目' :
-              currentTab === 'selection-platform' ? '选配平台' :
-              currentTab === 'busbar-master' ? '铜排大师软件' :
-              currentTab === 'busbar-conv' ? '电工铜排转换' :
-              currentTab === 'standards' ? '标准柜型方案库' :
-              currentTab === 'materials' ? '元器件参数化模型库' :
-              currentTab === 'ai-assistant' ? '智能布线' :
-              currentTab === 'bom-compare' ? 'BOM对比分析' :
-              currentTab === 'drc' ? '设计合规校验' :
-              '智能数字化模块'}
+                currentTab === 'temp-projects' ? '临时设计项目' :
+                  currentTab === 'selection-platform' ? '选配平台' :
+                    currentTab === 'busbar-master' ? '铜排大师软件' :
+                      currentTab === 'busbar-conv' ? '电工铜排转换' :
+                        currentTab === 'standards' ? '标准柜型方案库' :
+                          currentTab === 'materials' ? '元器件参数化模型库' :
+                            currentTab === 'ai-assistant' ? '智能布线' :
+                              currentTab === 'bom-compare' ? 'BOM对比分析' :
+                                currentTab === 'drc' ? '设计合规校验' :
+                                  '智能数字化模块'}
           </h2>
 
           <div className="flex items-center gap-6">
             {/* Global Search */}
             <div className="relative group hidden md:block">
-                <input 
-                    type="text" 
-                    placeholder="全站搜索..." 
-                    className="pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-full text-xs w-48 focus:w-64 transition-all outline-none focus:ring-2 focus:ring-blue-500/20 text-slate-600"
-                />
-                <svg className="w-4 h-4 absolute left-3 top-2.5 text-slate-400 group-focus-within:text-blue-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+              <input
+                type="text"
+                placeholder="全站搜索..."
+                className="pl-10 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-full text-xs w-48 focus:w-64 transition-all outline-none focus:ring-2 focus:ring-blue-500/20 text-slate-600"
+              />
+              <svg className="w-4 h-4 absolute left-3 top-2.5 text-slate-400 group-focus-within:text-blue-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
             </div>
 
             {/* Header Actions */}
             <div className="flex items-center gap-3 border-r border-slate-200 pr-6 mr-2">
-                <button onClick={() => setIsWarningOpen(true)} className="p-2 text-slate-400 hover:text-amber-500 transition-colors rounded-xl hover:bg-amber-50 relative group" title="预警中心">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
-                    <span className="absolute top-2 right-2 w-1.5 h-1.5 bg-red-500 rounded-full"></span>
-                </button>
-                <button 
-                    onClick={() => setCurrentTab('standards')} 
-                    className={`p-2 transition-colors rounded-xl relative group ${currentTab === 'standards' ? 'text-blue-600 bg-blue-50' : 'text-slate-400 hover:text-blue-600 hover:bg-blue-50'}`} 
-                    title="标准方案库"
-                >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
-                </button>
-                <button onClick={() => setIsMessageOpen(true)} className="p-2 text-slate-400 hover:text-blue-600 transition-colors rounded-xl hover:bg-blue-50 relative group" title="消息中心">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
-                    <span className="absolute top-1.5 right-1.5 flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                    </span>
-                </button>
+              <button onClick={() => setIsWarningOpen(true)} className="p-2 text-slate-400 hover:text-amber-500 transition-colors rounded-xl hover:bg-amber-50 relative group" title="预警中心">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+                <span className="absolute top-2 right-2 w-1.5 h-1.5 bg-red-500 rounded-full"></span>
+              </button>
+              <button
+                onClick={() => setCurrentTab('standards')}
+                className={`p-2 transition-colors rounded-xl relative group ${currentTab === 'standards' ? 'text-blue-600 bg-blue-50' : 'text-slate-400 hover:text-blue-600 hover:bg-blue-50'}`}
+                title="标准方案库"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+              </button>
+              <button onClick={() => setIsMessageOpen(true)} className="p-2 text-slate-400 hover:text-blue-600 transition-colors rounded-xl hover:bg-blue-50 relative group" title="消息中心">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+                <span className="absolute top-1.5 right-1.5 flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                </span>
+              </button>
             </div>
 
             <div className="text-right">
@@ -987,16 +985,16 @@ const Dashboard: React.FC<DashboardProps> = ({ onSelectProject, onLogout }) => {
               currentTab === 'materials' ? renderMaterials() :
                 currentTab === 'standards' ? renderStandards() :
                   currentTab === 'temp-projects' ? renderTempProjectCreation() :
-                  currentTab === 'busbar-master' ? <BusbarMasterIntro /> :
-                  currentTab === 'busbar-conv' ? <BusbarConversionIntro /> :
-                  currentTab === 'selection-platform' ? <SelectionPlatformIntro onNavigate={setCurrentTab} /> :
-                  currentTab === 'ai-assistant' ? renderDeveloping('智能布线', '⚡') :
-                  currentTab === 'bom-compare' ? renderDeveloping('BOM对比分析', '⚖️') :
-                  currentTab === 'drc' ? renderDeveloping('设计合规校验', '🛡️') :
-                  renderDeveloping('数字化交付生产看板', '📊')}
+                    currentTab === 'busbar-master' ? <BusbarMasterIntro /> :
+                      currentTab === 'busbar-conv' ? <BusbarConversionIntro /> :
+                        currentTab === 'selection-platform' ? <SelectionPlatformIntro onNavigate={setCurrentTab} /> :
+                          currentTab === 'ai-assistant' ? renderDeveloping('智能布线', '⚡') :
+                            currentTab === 'bom-compare' ? renderDeveloping('BOM对比分析', '⚖️') :
+                              currentTab === 'drc' ? renderDeveloping('设计合规校验', '🛡️') :
+                                renderDeveloping('数字化交付生产看板', '📊')}
         </div>
       </main>
-      
+
       {/* Drawers */}
       {renderWarningDrawer()}
       {renderMessageDrawer()}

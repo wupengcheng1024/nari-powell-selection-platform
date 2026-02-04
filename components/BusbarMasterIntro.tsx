@@ -21,13 +21,13 @@ const BusbarMasterIntro: React.FC = () => {
   return (
     <div className="p-8 space-y-6 animate-in fade-in duration-500 h-[calc(100vh-80px)] overflow-hidden flex flex-col">
       <div className="flex items-center justify-between pb-6 border-b border-slate-200 shrink-0">
-         <div className="flex items-center gap-3">
-             <div className="w-1.5 h-6 bg-blue-600 rounded-full"></div>
-             <div>
-               <h3 className="text-xl font-bold text-slate-800 tracking-tight">铜排大师 (NARI Busbar Master)</h3>
-               <p className="text-sm text-slate-500 mt-1">行业领先的母线槽与铜排三维辅助设计软件</p>
-             </div>
+        <div className="flex items-center gap-3">
+          <div className="w-1.5 h-6 bg-blue-600 rounded-full"></div>
+          <div>
+            <h3 className="text-xl font-bold text-slate-800 tracking-tight">铜排大师 (NARI Busbar Master)</h3>
+            <p className="text-sm text-slate-500 mt-1">行业领先的母线槽与铜排三维辅助设计软件</p>
           </div>
+        </div>
       </div>
 
       <div className="flex-1 flex gap-8 min-h-0">
@@ -71,38 +71,38 @@ const BusbarMasterIntro: React.FC = () => {
           </div>
 
           <div className="mt-auto">
-             <button 
-               onClick={handleOpenBusbarSoftware}
-               className="w-full py-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl font-bold shadow-xl shadow-blue-500/30 hover:shadow-blue-500/40 hover:scale-[1.02] transition-all active:scale-[0.98] flex items-center justify-center gap-3 text-lg"
-             >
-               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-               启动铜排大师软件
-             </button>
-             <p className="text-center text-xs text-slate-400 mt-4 px-4">
-               * 仅支持 Windows 操作系统。若未安装客户端，系统将无响应或提示下载。
-             </p>
+            <button
+              onClick={handleOpenBusbarSoftware}
+              className="w-full py-5 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-2xl font-bold shadow-xl shadow-blue-500/30 hover:shadow-blue-500/40 hover:scale-[1.02] transition-all active:scale-[0.98] flex items-center justify-center gap-3 text-lg"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              启动铜排大师软件
+            </button>
+            <p className="text-center text-xs text-slate-400 mt-4 px-4">
+              * 仅支持 Windows 操作系统。若未安装客户端，系统将无响应或提示下载。
+            </p>
           </div>
         </div>
 
         {/* Right Image */}
         <div className="flex-1 bg-slate-50 rounded-3xl border border-slate-200 overflow-hidden relative group">
-           <div className="absolute inset-0 flex items-center justify-center p-8">
-             <img 
-               src="images/tpds/introduction.png" 
-               alt="Copper Bar Master Software Interface" 
-               className="max-w-full max-h-full object-contain drop-shadow-2xl group-hover:scale-105 transition duration-700"
-               onError={(e) => {
-                 e.currentTarget.src = 'https://placehold.co/800x600/f1f5f9/94a3b8?text=Software+Preview+Image';
-               }}
-             />
-           </div>
-           <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur border-t border-slate-200 p-6 flex justify-between items-center">
-              <div>
-                <h5 className="font-bold text-slate-800">最新版本: V2025.3.1 (Build 8823)</h5>
-                <p className="text-xs text-slate-500">更新时间: 2025-06-15</p>
-              </div>
-              <span className="px-3 py-1 bg-green-50 text-green-600 text-xs font-bold rounded-lg border border-green-100">已授权</span>
-           </div>
+          <div className="absolute inset-0 flex items-center justify-center p-8">
+            <img
+              src="images/tpds/introduction.png"
+              alt="Copper Bar Master Software Interface"
+              className="max-w-full max-h-full object-contain drop-shadow-2xl group-hover:scale-105 transition duration-700"
+              onError={(e) => {
+                e.currentTarget.src = 'https://placehold.co/800x600/f1f5f9/94a3b8?text=Software+Preview+Image';
+              }}
+            />
+          </div>
+          <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur border-t border-slate-200 p-6 flex justify-between items-center">
+            <div>
+              <h5 className="font-bold text-slate-800">最新版本: V1.0.13.21 (Build 8823)</h5>
+              <p className="text-xs text-slate-500">更新时间: 2026-02-04</p>
+            </div>
+            <span className="px-3 py-1 bg-green-50 text-green-600 text-xs font-bold rounded-lg border border-green-100">已授权</span>
+          </div>
         </div>
       </div>
     </div>

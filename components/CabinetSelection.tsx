@@ -16,14 +16,14 @@ const CabinetSelection: React.FC<CabinetSelectionProps> = ({ onPrev, onNext }) =
   ];
 
   const [cabinets, setCabinets] = useState([
-    { id: '#1', type: '进线柜', code: '700-001', matched: 'STD-IN-01', score: 99, img: 'images/yicixian/STD-IN-01-B-01.png', function: '主进线', incoming: '电缆底进', outgoing: '母线排', components: 'VSI-12/1250, CT-10kV' },
-    { id: '#2', type: '馈线柜', code: '700-002', matched: 'STD-OUT-01', score: 98, img: 'images/yicixian/STD-KYN28-OUT-B-01.png', function: '馈电1回路', incoming: '母线排', outgoing: '电缆底出', components: 'VSI-12/630, JDZ-10' },
-    { id: '#3', type: '馈线柜', code: '700-003', matched: 'STD-OUT-01', score: 98, img: 'images/yicixian/STD-KYN28-OUT-B-02.png', function: '馈电2回路', incoming: '母线排', outgoing: '电缆底出', components: 'VSI-12/630' },
-    { id: '#4', type: '联络柜', code: '700-004', matched: 'STD-TIE-01', score: 95, img: 'images/yicixian/STD-TIE-01-B-01.png', function: '母线分段', incoming: '左段母线', outgoing: '右段母线', components: 'GN19-12' },
-    { id: '#5', type: 'PT柜', code: '700-005', matched: 'STD-PT-01', score: 92, img: 'images/yicixian/STD-PT-01-B-01.png', function: '母线测量', incoming: '母线插接', outgoing: '无', components: 'REL670, JDZ-10' },
-    { id: '#6', type: '馈线柜', code: '700-006', matched: 'STD-OUT-01', score: 98, img: 'images/yicixian/STD-KYN28-OUT-B-03.png', function: '馈电3回路', incoming: '母线排', outgoing: '电缆底出', components: 'VSI-12/630' },
-    { id: '#7', type: '计量柜', code: '700-007', matched: 'STD-MET-01', score: 88, img: 'images/yicixian/STD-MET-01-B-01.png', function: '电能计量', incoming: '母线排', outgoing: '母线排', components: '高精CT' },
-    { id: '#8', type: '进线柜', code: '700-008', matched: 'STD-IN-01', score: 99, img: 'images/yicixian/STD-IN-01-B-01.png', function: '二路进线', incoming: '电缆顶进', outgoing: '母线排', components: 'VSI-12/1250' },
+    { id: '#1', type: '出线柜', code: '700-001', matched: 'STD-IN-01', score: 99, img: 'images/yicixian/OUT_01.png', function: '主进线', incoming: '电缆底进', outgoing: '母线排', components: 'VSI-12/1250, CT-10kV' },
+    { id: '#2', type: '出线柜', code: '700-002', matched: 'STD-OUT-01', score: 98, img: 'images/yicixian/OUT_02.png', function: '馈电1回路', incoming: '母线排', outgoing: '电缆底出', components: 'VSI-12/630, JDZ-10' },
+    { id: '#3', type: '母设柜', code: '700-003', matched: 'STD-OUT-01', score: 98, img: 'images/yicixian/mushe_01.png', function: '馈电2回路', incoming: '母线排', outgoing: '电缆底出', components: 'VSI-12/630' },
+    { id: '#4', type: '进线柜', code: '700-004', matched: 'STD-TIE-01', score: 95, img: 'images/yicixian/IN_01.png', function: '母线分段', incoming: '左段母线', outgoing: '右段母线', components: 'GN19-12' },
+    { id: '#5', type: '分段柜', code: '700-005', matched: 'STD-PT-01', score: 92, img: 'images/yicixian/fenduan_01.png', function: '母线测量', incoming: '母线插接', outgoing: '无', components: 'REL670, JDZ-10' },
+    { id: '#6', type: '隔离柜', code: '700-006', matched: 'STD-OUT-01', score: 98, img: 'images/yicixian/geli_01.png', function: '馈电3回路', incoming: '母线排', outgoing: '电缆底出', components: 'VSI-12/630' },
+    { id: '#7', type: '进线柜', code: '700-007', matched: 'STD-MET-01', score: 88, img: 'images/yicixian/IN_02.png', function: '电能计量', incoming: '母线排', outgoing: '母线排', components: '高精CT' },
+    { id: '#8', type: '母设柜', code: '700-008', matched: 'STD-IN-01', score: 99, img: 'images/yicixian/mushe_02.png', function: '二路进线', incoming: '电缆顶进', outgoing: '母线排', components: 'VSI-12/1250' },
   ]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);

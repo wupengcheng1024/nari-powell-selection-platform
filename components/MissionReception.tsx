@@ -6,7 +6,7 @@ interface MissionReceptionProps {
 
 const MissionReception: React.FC<MissionReceptionProps> = ({ onNext }) => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
-  const previewImagePath = 'images/yicixian/STD-IN-01-B-01.png'; // Using an existing valid path from the project structure or matching the requirement
+  const previewImagePath = 'images/project/yicixian_cad.png'; // Using an existing valid path from the project structure or matching the requirement
 
   return (
     <div className="h-full flex flex-col items-center justify-center py-12">
@@ -49,7 +49,7 @@ const MissionReception: React.FC<MissionReceptionProps> = ({ onNext }) => {
               <span className="w-2 h-2 rounded-full bg-green-500"></span>
               一次图源文件 (CAD/PDF)
             </h4>
-            <div 
+            <div
               onClick={() => setIsPreviewOpen(true)}
               className="flex-1 flex flex-col items-center justify-center border-2 border-dashed border-slate-200 rounded-2xl p-6 bg-white/50 group hover:border-blue-400 transition-colors cursor-pointer"
             >
@@ -72,8 +72,8 @@ const MissionReception: React.FC<MissionReceptionProps> = ({ onNext }) => {
           <button className="px-10 py-3.5 bg-white border border-slate-200 rounded-2xl text-slate-600 font-bold hover:bg-slate-50 hover:border-slate-300 transition shadow-sm">
             重置连接
           </button>
-          <button 
-            onClick={onNext} 
+          <button
+            onClick={onNext}
             className="px-12 py-3.5 nari-bg text-white rounded-2xl font-black text-base shadow-xl shadow-blue-500/20 hover:bg-blue-700 transition active:scale-95"
           >
             建立项目并进入下一环节
@@ -84,7 +84,7 @@ const MissionReception: React.FC<MissionReceptionProps> = ({ onNext }) => {
       {/* Image Preview Modal */}
       {isPreviewOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-8 animate-in fade-in duration-300">
-          <div 
+          <div
             className="absolute inset-0 bg-slate-900/80 backdrop-blur-md"
             onClick={() => setIsPreviewOpen(false)}
           ></div>
@@ -94,7 +94,7 @@ const MissionReception: React.FC<MissionReceptionProps> = ({ onNext }) => {
                 <div className="w-1.5 h-6 bg-blue-600 rounded-full"></div>
                 <h4 className="text-xl font-bold text-slate-800">一次图在线解析预览 (Primary Diagram Preview)</h4>
               </div>
-              <button 
+              <button
                 onClick={() => setIsPreviewOpen(false)}
                 className="p-3 bg-slate-50 hover:bg-slate-100 rounded-2xl text-slate-400 hover:text-slate-600 transition"
               >
@@ -105,9 +105,9 @@ const MissionReception: React.FC<MissionReceptionProps> = ({ onNext }) => {
             </div>
             <div className="flex-1 overflow-auto p-12 bg-slate-50 flex items-center justify-center">
               <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-200 max-w-full">
-                <img 
-                  src={previewImagePath} 
-                  alt="Primary Diagram" 
+                <img
+                  src={previewImagePath}
+                  alt="Primary Diagram"
                   className="max-w-full h-auto object-contain drop-shadow-xl"
                   onError={(e) => {
                     e.currentTarget.src = 'https://placehold.co/1200x800/f8fafc/64748b?text=Primary+Diagram+Preview';
@@ -118,7 +118,7 @@ const MissionReception: React.FC<MissionReceptionProps> = ({ onNext }) => {
             <div className="p-6 bg-slate-50 border-t border-slate-200 flex justify-between items-center text-sm text-slate-500 px-12">
               <div className="flex items-center gap-2">
                 <span className="px-2 py-0.5 bg-blue-100 text-blue-600 rounded font-bold text-[10px]">AI 解析中</span>
-                <span>识别到 14 面柜体拓扑结构</span>
+                <span>识别到 8 面柜体拓扑结构</span>
               </div>
               <p className="font-mono text-[10px] uppercase tracking-widest">Source: PLM_DOC_V2025_06.png</p>
             </div>
