@@ -68,3 +68,11 @@ export enum WorkflowStep {
   MAIN_BUSBAR_ASSEMBLY = 5,
   OUTPUT_EXPORT = 6
 }
+
+export type TabType =
+  | 'overview' | 'projects' | 'temp-projects'
+  | 'selection-platform' | 'busbar-master' | 'busbar-conv'
+  | 'standards' | 'materials'
+  | 'ai-assistant' | 'bom-compare' | 'drc';
+
+export type StandardCategory = '中压柜' | '低压柜' | '箱变';
