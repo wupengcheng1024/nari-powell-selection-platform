@@ -4,7 +4,7 @@ import { Material } from '../types';
 
 const MaterialsManagement: React.FC = () => {
   const initialMaterials: Material[] = [
-    { id: 'M001', name: '真空断路器', model: 'VSI-12/1250-31.5', brand: '南瑞帕威尔', category: '断路器', stock: 124, price: '￥18,500', unit: '台', thumbnail: 'images/bom/ZKDLQ.png', status: 'approved' },
+    { id: 'M001', name: '真空断路器', model: 'VSI-12/1250-31.5', brand: 'Xxxx', category: '断路器', stock: 124, price: '￥18,500', unit: '台', thumbnail: 'images/bom/ZKDLQ.png', status: 'approved' },
     { id: 'M002', name: '电流互感器', model: 'LZZBJ9-10/150b/2', brand: '特变电工', category: '互感器', stock: 450, price: '￥1,200', unit: '只', thumbnail: 'images/bom/DLHGQ.png', status: 'approved' },
     { id: 'M003', name: '低压塑壳断路器', model: 'NM1-125S', brand: '正泰', category: '断路器', stock: 500, price: '￥450', unit: '只', thumbnail: 'images/bom/SK.png', status: 'pending' },
     { id: 'M004', name: '智能型万能断路器', model: 'RDW5-2000', brand: '人民电器', category: '断路器', stock: 35, price: '￥12,800', unit: '台', thumbnail: 'images/bom/KJ.png', status: 'approved' },
@@ -101,7 +101,7 @@ const MaterialsManagement: React.FC = () => {
           </button>
           <button
             onClick={handleAddMaterial}
-            className="px-6 py-2 nari-bg text-white rounded-xl text-sm font-bold flex items-center gap-2 hover:bg-blue-700"
+            className="px-6 py-2 xxxx-bg text-white rounded-xl text-sm font-bold flex items-center gap-2 hover:bg-blue-700"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" /></svg>
             新增元器件
@@ -207,7 +207,7 @@ const MaterialsManagement: React.FC = () => {
               </div>
               <div className="pt-4 flex justify-end gap-3">
                 <button type="button" onClick={() => setIsMatModalOpen(false)} className="px-4 py-2 border border-slate-200 rounded-lg text-sm font-bold text-slate-600 hover:bg-slate-50">取消</button>
-                <button type="submit" className="px-4 py-2 nari-bg text-white rounded-lg text-sm font-bold hover:bg-blue-700">保存元器件</button>
+                <button type="submit" className="px-4 py-2 xxxx-bg text-white rounded-lg text-sm font-bold hover:bg-blue-700">保存元器件</button>
               </div>
             </form>
           </div>

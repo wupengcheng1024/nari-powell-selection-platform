@@ -190,7 +190,7 @@ const OutputExport: React.FC<OutputExportProps> = ({ onPrev }) => {
             <button
               onClick={handleSync}
               disabled={isSyncing}
-              className={`w-full py-4 rounded-2xl font-bold transition-all flex items-center justify-center gap-3 relative z-10 ${isSyncing ? 'bg-slate-700 text-slate-400 cursor-wait' : 'nari-bg text-white hover:bg-blue-700 shadow-xl shadow-blue-500/20 active:scale-[0.98]'}`}
+              className={`w-full py-4 rounded-2xl font-bold transition-all flex items-center justify-center gap-3 relative z-10 ${isSyncing ? 'bg-slate-700 text-slate-400 cursor-wait' : 'xxxx-bg text-white hover:bg-blue-700 shadow-xl shadow-blue-500/20 active:scale-[0.98]'}`}
             >
               {isSyncing ? (
                 <>

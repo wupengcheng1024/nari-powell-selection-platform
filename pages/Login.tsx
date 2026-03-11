@@ -43,9 +43,9 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
         <div className="w-full max-w-md bg-white/90 backdrop-blur-xl rounded-3xl shadow-2xl p-8 border border-white/50 animate-in slide-in-from-left-10 duration-700">
           <div className="mb-8">
             <h1 className="text-3xl font-black text-slate-800 tracking-tight">
-              南瑞帕威尔 <span className="text-blue-600">设计云平台</span>
+              Xxxx <span className="text-blue-600">设计云平台</span>
             </h1>
-            <p className="text-sm text-slate-500 mt-2 font-medium">NARI Powell Intelligent Design System</p>
+            <p className="text-sm text-slate-500 mt-2 font-medium">Xxxx Intelligent Design System</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">

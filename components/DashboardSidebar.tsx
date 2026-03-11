@@ -13,7 +13,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({ currentTab, onTabCh
     <aside className="w-64 bg-[#0f172a] text-white flex flex-col fixed h-full z-20 shadow-2xl font-sans">
       <div className="flex-1 overflow-y-auto">
         <div className="p-8 pb-4">
-          <img src="images/login/logo.png" alt="NARI Logo" className="mb-8 object-contain" />
+          <img src="images/login/logo_xxxx.svg" alt="Xxxx Logo" className="mb-8 object-contain" />
           <h4 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">核心设计中枢</h4>
           <nav className="space-y-2">
             <button onClick={() => onTabChange('overview')} className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-bold transition-all ${currentTab === 'overview' ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}>

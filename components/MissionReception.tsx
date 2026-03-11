@@ -74,7 +74,7 @@ const MissionReception: React.FC<MissionReceptionProps> = ({ onNext }) => {
           </button>
           <button
             onClick={onNext}
-            className="px-12 py-3.5 nari-bg text-white rounded-2xl font-black text-base shadow-xl shadow-blue-500/20 hover:bg-blue-700 transition active:scale-95"
+            className="px-12 py-3.5 xxxx-bg text-white rounded-2xl font-black text-base shadow-xl shadow-blue-500/20 hover:bg-blue-700 transition active:scale-95"
           >
             建立项目并进入下一环节
           </button>

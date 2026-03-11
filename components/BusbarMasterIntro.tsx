@@ -7,14 +7,14 @@ const BusbarMasterIntro: React.FC = () => {
     const isWindows = userAgent.includes('Windows');
 
     if (isWindows) {
-      // 在浏览器中，通常通过自定义 URL Protocol (如 nari-tpds://) 来唤起本地应用
+      // 在浏览器中，通常通过自定义 URL Protocol (如 xxxx-tpds://) 来唤起本地应用
       // 这里模拟唤起过程
-      const confirmOpen = window.confirm("检测到 Windows 环境。即将尝试通过 'nari-tpds://' 协议唤起本地安装的铜排大师软件。\n\n请确认您已安装该客户端。");
+      const confirmOpen = window.confirm("检测到 Windows 环境。即将尝试通过 'xxxx-tpds://' 协议唤起本地安装的铜排大师软件。\n\n请确认您已安装该客户端。");
       if (confirmOpen) {
-        window.location.href = "nari-tpds://launch";
+        window.location.href = "xxxx-tpds://launch";
       }
     } else {
-      alert("系统检测到当前非 Windows 操作系统。\n\n铜排大师 (NARI Busbar Master) 仅支持在 Windows 环境下运行。请切换设备后重试。");
+      alert("系统检测到当前非 Windows 操作系统。\n\n铜排大师 (Xxxx Busbar Master) 仅支持在 Windows 环境下运行。请切换设备后重试。");
     }
   };
 
@@ -24,7 +24,7 @@ const BusbarMasterIntro: React.FC = () => {
         <div className="flex items-center gap-3">
           <div className="w-1.5 h-6 bg-blue-600 rounded-full"></div>
           <div>
-            <h3 className="text-xl font-bold text-slate-800 tracking-tight">铜排大师 (NARI Busbar Master)</h3>
+            <h3 className="text-xl font-bold text-slate-800 tracking-tight">铜排大师 (Xxxx Busbar Master)</h3>
             <p className="text-sm text-slate-500 mt-1">行业领先的母线槽与铜排三维辅助设计软件</p>
           </div>
         </div>
@@ -50,7 +50,7 @@ const BusbarMasterIntro: React.FC = () => {
                 <div className="w-5 h-5 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center text-xs font-bold shrink-0">2</div>
                 <div>
                   <strong className="block text-slate-800">参数化三维建模</strong>
-                  内置 NARI 标准铜排库，支持快速拉伸、折弯、冲孔等参数化操作。
+                  内置 Xxxx 标准铜排库，支持快速拉伸、折弯、冲孔等参数化操作。
                 </div>
               </li>
               <li className="flex gap-3">

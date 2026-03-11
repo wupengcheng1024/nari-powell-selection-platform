@@ -239,7 +239,7 @@ const MainBusbarAssembly: React.FC<MainBusbarAssemblyProps> = ({ onPrev, onNext 
         <button
           onClick={handleAssemble}
           disabled={isAssembling}
-          className={`px-10 py-3 rounded-xl font-bold shadow-lg transition active:scale-95 disabled:opacity-70 disabled:cursor-wait flex items-center gap-2 text-base ${showResult ? 'bg-green-600 hover:bg-green-700 text-white shadow-green-500/20' : 'nari-bg hover:bg-blue-700 text-white shadow-blue-500/20'}`}
+          className={`px-10 py-3 rounded-xl font-bold shadow-lg transition active:scale-95 disabled:opacity-70 disabled:cursor-wait flex items-center gap-2 text-base ${showResult ? 'bg-green-600 hover:bg-green-700 text-white shadow-green-500/20' : 'xxxx-bg hover:bg-blue-700 text-white shadow-blue-500/20'}`}
         >
           {isAssembling ? '正在拼柜...' : showResult ? '确认并下一步' : '开始拼柜总装'}
           {showResult && <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>}

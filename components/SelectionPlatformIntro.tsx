@@ -106,7 +106,7 @@ const SelectionPlatformIntro: React.FC<SelectionPlatformIntroProps> = ({ onNavig
               </div>
               <h5 className="font-bold text-slate-800">实时驱动引擎</h5>
               <p className="text-xs text-slate-500 mt-2 leading-relaxed">
-                修改参数后自动触发模型重建，生成符合 NARI 制造标准的 SolidWorks 工程图。
+                修改参数后自动触发模型重建，生成符合 Xxxx 制造标准的 SolidWorks 工程图。
               </p>
             </div>
 

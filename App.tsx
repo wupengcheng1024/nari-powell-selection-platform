@@ -29,21 +29,21 @@ const ProjectDetailWrapper = ({ onBack }: { onBack: () => void }) => {
 const App: React.FC = () => {
   // 从 localStorage 读取初始登录状态，解决刷新丢失问题
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
-    return localStorage.getItem('nari_auth_token') === 'true';
+    return localStorage.getItem('xxxx_auth_token') === 'true';
   });
 
   const navigate = useNavigate();
 
   // 登录处理：写入本地存储并跳转
   const handleLogin = () => {
-    localStorage.setItem('nari_auth_token', 'true');
+    localStorage.setItem('xxxx_auth_token', 'true');
     setIsLoggedIn(true);
     navigate('/'); // 登录后跳转到 Dashboard
   };
 
   // 登出处理：清除本地存储并跳转
   const handleLogout = () => {
-    localStorage.removeItem('nari_auth_token');
+    localStorage.removeItem('xxxx_auth_token');
     setIsLoggedIn(false);
     navigate('/login');
   };

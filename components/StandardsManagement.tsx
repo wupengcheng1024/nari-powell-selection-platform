@@ -77,7 +77,7 @@ const StandardsManagement: React.FC = () => {
       <div className="flex items-center justify-between">
         <div>
           <h3 className="text-xl font-bold text-slate-800">标准柜型库</h3>
-          <p className="text-sm text-slate-500">数字化 3D 方案集 - 实时同步 NARI Powell 技术部标准</p>
+          <p className="text-sm text-slate-500">数字化 3D 方案集 - 实时同步 Xxxx 技术部标准</p>
         </div>
         <div className="flex items-center gap-4">
           <div className="flex bg-slate-100 p-1 rounded-2xl border border-slate-200">
@@ -93,7 +93,7 @@ const StandardsManagement: React.FC = () => {
           </div>
           <button
             onClick={handleAddStandard}
-            className="px-4 py-2 nari-bg text-white rounded-xl text-sm font-bold shadow-lg shadow-blue-500/20 hover:bg-blue-700 transition flex items-center gap-2"
+            className="px-4 py-2 xxxx-bg text-white rounded-xl text-sm font-bold shadow-lg shadow-blue-500/20 hover:bg-blue-700 transition flex items-center gap-2"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" /></svg>
             新增方案
@@ -192,7 +192,7 @@ const StandardsManagement: React.FC = () => {
               </div>
               <div className="pt-4 flex justify-end gap-3">
                 <button type="button" onClick={() => setIsStdModalOpen(false)} className="px-4 py-2 border border-slate-200 rounded-lg text-sm font-bold text-slate-600 hover:bg-slate-50">取消</button>
-                <button type="submit" className="px-4 py-2 nari-bg text-white rounded-lg text-sm font-bold hover:bg-blue-700">保存方案</button>
+                <button type="submit" className="px-4 py-2 xxxx-bg text-white rounded-lg text-sm font-bold hover:bg-blue-700">保存方案</button>
               </div>
             </form>
           </div>

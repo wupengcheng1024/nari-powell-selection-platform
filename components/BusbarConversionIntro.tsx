@@ -10,7 +10,7 @@ const BusbarConversionIntro: React.FC = () => {
       const confirmOpen = window.confirm("检测到 Windows 环境。即将启动 SolidWorks 及其转换插件。\n\n这需要您本地已安装 SolidWorks 2022 或更高版本。\n确认启动？");
       if (confirmOpen) {
         // 使用 URL Protocol 唤起 SolidWorks 或插件
-        window.location.href = "solidworks://launch?plugin=nari_conversion";
+        window.location.href = "solidworks://launch?plugin=xxxx_conversion";
       }
     } else {
       alert("系统检测到当前非 Windows 操作系统。\n\nSolidWorks 及电工铜排转换插件仅支持在 Windows 环境下运行。");
@@ -52,7 +52,7 @@ const BusbarConversionIntro: React.FC = () => {
                 <div>
                   <strong className="block text-slate-800 mb-1">工艺合规化的自动纠偏</strong>
                   <p className="text-xs text-slate-500 leading-relaxed">
-                    消除外部工艺偏差（如折弯系数 K 因子不一致）。系统自动加载帕威尔标准工艺库，将非标特征（如 R 角、非标孔）强制修正为内部标准。
+                    消除外部工艺偏差（如折弯系数 K 因子不一致）。系统自动加载 Xxxx 标准工艺库，将非标特征（如 R 角、非标孔）强制修正为内部标准。
                   </p>
                 </div>
               </li>
@@ -61,7 +61,7 @@ const BusbarConversionIntro: React.FC = () => {
                 <div>
                   <strong className="block text-slate-800 mb-1">数据纯净与安全</strong>
                   <p className="text-xs text-slate-500 leading-relaxed">
-                     最终存入帕威尔服务器的不再是充满未知风险的原始文件，而是由系统全新生成的纯净数据，消除了数据后门，实现了完全可编辑性。
+                     最终存入 Xxxx 服务器的不再是充满未知风险的原始文件，而是由系统全新生成的纯净数据，消除了数据后门，实现了完全可编辑性。
                   </p>
                 </div>
               </li>
@@ -77,7 +77,7 @@ const BusbarConversionIntro: React.FC = () => {
                启动 SolidWorks 转换插件
              </button>
              <p className="text-center text-xs text-slate-400 mt-4 px-4">
-               * 需要本地安装 SolidWorks。转换过程将自动打开 SW 并加载 NARI 插件。
+               * 需要本地安装 SolidWorks。转换过程将自动打开 SW 并加载 Xxxx 插件。
              </p>
           </div>
         </div>

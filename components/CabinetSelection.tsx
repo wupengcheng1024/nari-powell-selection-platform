@@ -104,7 +104,7 @@ const CabinetSelection: React.FC<CabinetSelectionProps> = ({ onPrev, onNext }) =
               <p className="text-[9px] text-slate-400 font-mono mb-2 truncate">{c.matched}</p>
               <button
                 onClick={(e) => { e.stopPropagation(); openSelectionModal(index); }}
-                className="w-full py-1 text-[10px] nari-blue border border-blue-200 rounded bg-white hover:bg-blue-100 transition"
+                className="w-full py-1 text-[10px] xxxx-blue border border-blue-200 rounded bg-white hover:bg-blue-100 transition"
               >
                 重选模板
               </button>
@@ -262,7 +262,7 @@ const CabinetSelection: React.FC<CabinetSelectionProps> = ({ onPrev, onNext }) =
         <button onClick={onPrev} className="px-6 py-2.5 border border-slate-300 rounded-xl font-bold text-slate-600 bg-white hover:bg-slate-50 transition shadow-sm">返回上一步</button>
         <div className="flex items-center gap-4">
           <span className="text-[10px] text-slate-400 font-bold italic">系统已自动通过 102 项设计规范检查 ✔</span>
-          <button onClick={onNext} className="px-12 py-2.5 nari-bg text-white rounded-xl font-extrabold shadow-xl shadow-blue-500/30 hover:bg-blue-700 transition active:scale-[0.98]">确认并生成 3D 钣金模型</button>
+          <button onClick={onNext} className="px-12 py-2.5 xxxx-bg text-white rounded-xl font-extrabold shadow-xl shadow-blue-500/30 hover:bg-blue-700 transition active:scale-[0.98]">确认并生成 3D 钣金模型</button>
         </div>
       </div>
 

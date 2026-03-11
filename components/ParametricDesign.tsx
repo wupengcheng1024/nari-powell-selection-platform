@@ -307,7 +307,7 @@ const ParametricDesign: React.FC<ParametricDesignProps> = ({ onPrev, onNext }) =
         <button onClick={onPrev} className="px-8 py-2.5 border border-slate-300 rounded-xl font-bold text-slate-600 hover:bg-slate-50 transition active:scale-95">返回上一步</button>
         <div className="flex items-center gap-4">
           <span className="text-[10px] text-slate-400 font-bold flex items-center gap-1"><div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div> 结构合规性校验已通过</span>
-          <button onClick={onNext} className="px-12 py-2.5 nari-bg text-white rounded-xl font-extrabold shadow-xl shadow-blue-500/20 hover:bg-blue-700 transition active:scale-95">生成钣金图纸并进入铜排设计</button>
+          <button onClick={onNext} className="px-12 py-2.5 xxxx-bg text-white rounded-xl font-extrabold shadow-xl shadow-blue-500/20 hover:bg-blue-700 transition active:scale-95">生成钣金图纸并进入铜排设计</button>
         </div>
       </div>
     </div>

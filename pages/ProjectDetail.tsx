@@ -61,10 +61,10 @@ const ProjectDetail: React.FC<ProjectDetailProps> = ({ projectId, onBack }) => {
         <div className="flex items-center gap-4">
           <div className="text-xs text-right mr-4 border-r pr-4 border-slate-200">
             <span className="text-slate-400 block">当前环节</span>
-            <span className="nari-blue font-bold">{steps[currentStep] ? steps[currentStep].title : '未知'}</span>
+            <span className="xxxx-blue font-bold">{steps[currentStep] ? steps[currentStep].title : '未知'}</span>
           </div>
           <button className="px-4 py-2 border border-slate-200 text-sm rounded-lg hover:bg-slate-50">保存草稿</button>
-          <button className="px-4 py-2 nari-bg text-white text-sm rounded-lg hover:shadow-lg transition">提交审核</button>
+          <button className="px-4 py-2 xxxx-bg text-white text-sm rounded-lg hover:shadow-lg transition">提交审核</button>
         </div>
       </header>
 

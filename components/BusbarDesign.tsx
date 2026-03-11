@@ -89,7 +89,7 @@ const BusbarDesign: React.FC<BusbarDesignProps> = ({ onPrev, onNext }) => {
               </div>
               <div className="text-center">
                 <h4 className="text-slate-800 font-bold text-xl mb-2">{getGenerationMessage()}</h4>
-                <p className="text-slate-400 text-xs font-mono">NARI-CLOUD GPU RENDERING ENGINE ACTIVE</p>
+                <p className="text-slate-400 text-xs font-mono">Xxxx-CLOUD GPU RENDERING ENGINE ACTIVE</p>
               </div>
             </div>
           ) : (
@@ -210,7 +210,7 @@ const BusbarDesign: React.FC<BusbarDesignProps> = ({ onPrev, onNext }) => {
               <button
                 onClick={handleGenerate}
                 disabled={isGenerating}
-                className="w-full py-4 nari-bg text-white font-extrabold rounded-2xl shadow-xl shadow-blue-500/20 hover:bg-blue-700 transition active:scale-95 disabled:opacity-50"
+                className="w-full py-4 xxxx-bg text-white font-extrabold rounded-2xl shadow-xl shadow-blue-500/20 hover:bg-blue-700 transition active:scale-95 disabled:opacity-50"
               >
                 {isGenerating ? '正在更新子装配...' : '驱动更新子装配'}
               </button>
@@ -240,7 +240,7 @@ const BusbarDesign: React.FC<BusbarDesignProps> = ({ onPrev, onNext }) => {
         <button onClick={onPrev} className="px-8 py-2.5 border border-slate-300 rounded-xl font-bold text-slate-600 hover:bg-slate-50 transition active:scale-95">返回上一步</button>
         <div className="flex items-center gap-4">
           <span className="text-[10px] text-slate-400 font-bold flex items-center gap-1 italic"><div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></div> 算法已完成主回路电气安全冗余校验 (Factor: 1.25)</span>
-          <button onClick={onNext} disabled={!isGenerated} className={`px-12 py-2.5 rounded-xl font-extrabold shadow-xl transition active:scale-95 ${isGenerated ? 'nari-bg text-white hover:bg-blue-700 shadow-blue-500/30' : 'bg-slate-200 text-slate-400 cursor-not-allowed'}`}>
+          <button onClick={onNext} disabled={!isGenerated} className={`px-12 py-2.5 rounded-xl font-extrabold shadow-xl transition active:scale-95 ${isGenerated ? 'xxxx-bg text-white hover:bg-blue-700 shadow-blue-500/30' : 'bg-slate-200 text-slate-400 cursor-not-allowed'}`}>
             完成设计并进入主母排拼柜
           </button>
         </div>
