@@ -16,7 +16,7 @@ const DevelopingPlaceholder: React.FC<DevelopingPlaceholderProps> = ({ moduleNam
       <h3 className="text-2xl font-bold text-slate-400 mb-2">{moduleName}</h3>
       <div className="px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-xs font-bold mb-6">正在进行数字化重构 (In Development)</div>
       <p className="max-w-md text-center text-slate-400 text-sm leading-relaxed">
-        该模块属于数字化转型二期规划。完成后将支持基于 AI 的全自动能力，并实现与南瑞 PLM 及 ERP 系统的全链路闭环对接。
+        该模块属于数字化转型二期规划。完成后将支持基于 AI 的全自动能力，并实现与Xxxx PLM 及 ERP 系统的全链路闭环对接。
       </p>
       <button
         onClick={onBack}

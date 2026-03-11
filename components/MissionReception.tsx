@@ -19,7 +19,7 @@ const MissionReception: React.FC<MissionReceptionProps> = ({ onNext }) => {
           </div>
           <div>
             <h3 className="text-3xl font-bold text-slate-800 tracking-tight">PLM 任务同步中心</h3>
-            <p className="text-slate-500 text-base mt-1">自动从南瑞 PLM 系统获取项目 WBS 号、电气一次图及物料清单</p>
+            <p className="text-slate-500 text-base mt-1">自动从Xxxx PLM 系统获取项目 WBS 号、电气一次图及物料清单</p>
           </div>
         </div>
 

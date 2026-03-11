@@ -27,7 +27,7 @@ const OutputExport: React.FC<OutputExportProps> = ({ onPrev }) => {
     setIsSyncing(true);
     setTimeout(() => {
       setIsSyncing(false);
-      alert('数字化成果已成功同步至南瑞 PLM 系统！');
+      alert('数字化成果已成功同步至Xxxx PLM 系统！');
     }, 2000);
   };
 

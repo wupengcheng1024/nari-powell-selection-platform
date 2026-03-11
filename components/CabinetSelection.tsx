@@ -212,7 +212,7 @@ const CabinetSelection: React.FC<CabinetSelectionProps> = ({ onPrev, onNext }) =
 
               <div className="p-3 bg-blue-50/50 rounded-xl border border-blue-100">
                 <p className="text-[10px] text-blue-700 leading-tight">
-                  <span className="font-extrabold uppercase">Expert Suggestion:</span> 该进线柜建议增加温升在线监测模块以适配南瑞数字化底座。
+                  <span className="font-extrabold uppercase">Expert Suggestion:</span> 该进线柜建议增加温升在线监测模块以适配Xxxx数字化底座。
                 </p>
               </div>
             </div>
